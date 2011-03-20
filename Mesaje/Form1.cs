@@ -53,7 +53,7 @@ namespace TaskbarNotifierDemo
 			InitializeComponent();
 
 			
-			textBoxContent.Text="This is a sample content, it can spread on multiple lines";
+			textBoxContent.Text="Aplicatie pornita ... update after! ---> True test!";
 			textBoxTitle.Text="Title";
 			textBoxDelayShowing.Text="500";
 			textBoxDelayStaying.Text="3000";
@@ -65,7 +65,7 @@ namespace TaskbarNotifierDemo
 			checkBoxKeepVisibleOnMouseOver.Checked = true;		// Added Rev 002
 			checkBoxReShowOnMouseOver.Checked = false;			// Added Rev 002
 
-            ResourceManager rm = new ResourceManager("Project1.Resource", Assembly.GetExecutingAssembly());
+            ResourceManager rm = new ResourceManager("Mesaje.Resource", Assembly.GetExecutingAssembly());
 
 			taskbarNotifier1=new TaskbarNotifier();
 			taskbarNotifier1.SetBackgroundBitmap((Bitmap)rm.GetObject("skin") ,Color.FromArgb(255,0,255));
