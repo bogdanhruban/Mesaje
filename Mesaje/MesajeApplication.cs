@@ -14,6 +14,8 @@ namespace Mesaje
         NotifyIcon m_notifyIcon;
         ContextMenu m_contextMenu;
         MenuItem m_exitMenuItem;
+        MenuItem m_newMessageMenuItem;
+        MenuItem m_optionsMenuItem;
         IContainer m_components;
         #endregion
 
@@ -22,14 +24,25 @@ namespace Mesaje
             m_notifyIcon = new NotifyIcon();
             m_contextMenu = new ContextMenu();
             m_exitMenuItem = new MenuItem();
+            m_newMessageMenuItem = new MenuItem();
+            m_optionsMenuItem = new MenuItem();
 
             // initialize the context menu
-            m_contextMenu.MenuItems.AddRange(new MenuItem[] { m_exitMenuItem });
+            m_contextMenu.MenuItems.AddRange(new MenuItem[] { m_exitMenuItem, m_optionsMenuItem, m_newMessageMenuItem });
 
             // initialize the menu items
             m_exitMenuItem.Index = 0;
             m_exitMenuItem.Text = "E&xit";
+            m_exitMenuItem.BarBreak = true;
             m_exitMenuItem.Click += new EventHandler(exitMenuItem_Click);
+
+            m_optionsMenuItem.Index = 1;
+            m_optionsMenuItem.Text = "&Options";
+            m_optionsMenuItem.Click += new EventHandler(optionsMenuItem_Click);
+
+            m_newMessageMenuItem.Index = 2;
+            m_newMessageMenuItem.Text = "Arata mesaj &nou";
+            m_newMessageMenuItem.Click += new EventHandler(newMessageMenuItem_Click);
 
             // create the notification icon
             m_notifyIcon = new NotifyIcon();
@@ -92,6 +105,18 @@ namespace Mesaje
         {
             // Close the form, which closes the application.
             this.Close();
+        }
+
+        private void optionsMenuItem_Click(object Sender, EventArgs e)
+        {
+            // Close the form, which closes the application.
+            MessageBox.Show("Options clicked!");
+        }
+
+        private void newMessageMenuItem_Click(object Sender, EventArgs e)
+        {
+            // Close the form, which closes the application.
+            MessageBox.Show("Show new message clicked!");
         }
 
         /// <summary>
