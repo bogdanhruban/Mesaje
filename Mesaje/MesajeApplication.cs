@@ -46,6 +46,8 @@ namespace Mesaje
 
             // add the resize event
             this.Resize += new EventHandler(MesajeApplication_Resize);
+            m_notifyIcon.Visible = true;
+            m_notifyIcon.DoubleClick += new EventHandler(notifyIcon_DoubleClick);
         }
 
         protected override void Dispose(bool disposing)
@@ -57,6 +59,7 @@ namespace Mesaje
 
             base.Dispose(disposing);
         }
+
 
         private void MesajeApplication_Resize(object sender, EventArgs e)
         {
