@@ -120,7 +120,7 @@ namespace Mesaje
         }
 
         /// <summary>
-        /// Point d'entrée principal de l'application.
+        /// Entry point in the application
         /// </summary>
         [STAThread]
         static void Main()
