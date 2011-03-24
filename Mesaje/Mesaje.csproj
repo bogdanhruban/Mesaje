@@ -83,7 +83,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="Data\Class1.cs" />
+    <Compile Include="Data\Mesaj.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
