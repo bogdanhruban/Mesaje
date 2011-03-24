@@ -63,6 +63,12 @@ namespace Mesaje
             m_notifyIcon.DoubleClick += new EventHandler(notifyIcon_DoubleClick);
         }
 
+        protected void LoadItems()
+        {
+            // read the config file
+
+        }
+
         protected override void Dispose(bool disposing)
         {
             // Clean up any components being used.
