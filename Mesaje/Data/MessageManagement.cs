@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Collections;
+using System.Xml;
+using System.IO;
 
 namespace Mesaje.Data
 {
@@ -22,6 +24,24 @@ namespace Mesaje.Data
                 return false;
             }
 
+            FileStream reader = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
+            System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(typeof(MessageManagement));
+            
+            try
+            {
+                // Load the object saved above by using the Deserialize function
+                MessageManagement loadedObj = (MessageManagement)serializer.Deserialize(reader);
+                this.m_messages = loadedObj.m_messages;
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                reader.Close();
+            }
+
             return false;
         }
 
@@ -31,9 +51,20 @@ namespace Mesaje.Data
         /// <param name="filePath">The XML file path.</param>
         void SaveToXml(string filePath)
         {
-            if (!System.IO.File.Exists(filePath))
+            System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(typeof(MessageManagement));
+            System.IO.FileStream stream = new System.IO.FileStream(filePath, FileMode.CreateNew);
+            try
             {
-                throw new Exception("File does not exist!");
+                serializer.Serialize(stream, this);
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                stream.Close();
+                stream.Dispose();
             }
         }
 
