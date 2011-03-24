@@ -25,6 +25,18 @@ namespace Mesaje.Data
             return false;
         }
 
+        /// <summary>
+        /// Save the messages to a XML file.
+        /// </summary>
+        /// <param name="filePath">The XML file path.</param>
+        void SaveToXml(string filePath)
+        {
+            if (!System.IO.File.Exists(filePath))
+            {
+                throw new Exception("File does not exist!");
+            }
+        }
+
         Message DisplayMessage
         {
             get
