@@ -89,6 +89,9 @@ namespace Mesaje
 
         protected override void Dispose(bool disposing)
         {
+            AppSettingsReader appSettings = new AppSettingsReader();
+            MessageManagement.SaveToXml((string)(appSettings.GetValue("MessagesXml", typeof(string))), m_messages);
+
             // Clean up any components being used.
             if (disposing)
                 if (m_components != null)

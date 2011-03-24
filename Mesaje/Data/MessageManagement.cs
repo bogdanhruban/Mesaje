@@ -5,6 +5,7 @@ using System.Text;
 using System.Collections;
 using System.Xml;
 using System.IO;
+using System.Xml.Serialization;
 
 namespace Mesaje.Data
 {
@@ -21,16 +22,17 @@ namespace Mesaje.Data
         {
             if (!System.IO.File.Exists(filePath))
             {
-                return null;
+                return null;                
             }
 
             FileStream reader = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
-            System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(typeof(MessageManagement));
+            XmlSerializer serializer = new XmlSerializer(typeof(MessageManagement));
 
             try
             {
                 // Load the object saved above by using the Deserialize function
                 MessageManagement loadedObj = (MessageManagement)serializer.Deserialize(reader);
+
                 return loadedObj;
             }
             catch
@@ -47,13 +49,14 @@ namespace Mesaje.Data
         /// Save the messages to a XML file.
         /// </summary>
         /// <param name="filePath">The XML file path.</param>
-        void SaveToXml(string filePath)
+        /// <param name="messages">The Messages to be saved.</param>
+        public static void SaveToXml(string filePath, MessageManagement messages)
         {
-            System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(typeof(MessageManagement));
-            System.IO.FileStream stream = new System.IO.FileStream(filePath, FileMode.CreateNew);
+            XmlSerializer serializer = new XmlSerializer(typeof(MessageManagement));
+            System.IO.FileStream stream = new System.IO.FileStream(filePath, FileMode.Create);
             try
             {
-                serializer.Serialize(stream, this);
+                serializer.Serialize(stream, messages);
             }
             catch
             {
@@ -66,7 +69,16 @@ namespace Mesaje.Data
             }
         }
 
-        Message DisplayMessage
+        [XmlArray("Message")]
+        public List<Message> Messages
+        {
+            get
+            {
+                return m_messages;
+            }
+        }
+
+        public Message DisplayMessage
         {
             get
             {
