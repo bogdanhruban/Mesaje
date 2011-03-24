@@ -78,6 +78,7 @@ namespace Mesaje.Data
             }
         }
 
+        [XmlIgnore()]
         public Message DisplayMessage
         {
             get
