@@ -24,5 +24,25 @@ namespace Mesaje.Data
 
             return false;
         }
+
+        Message DisplayMessage
+        {
+            get
+            {
+                if (m_messages.Count == 0)
+                    return null;
+                
+                Random rand = new Random(DateTime.Now.Second);
+                int displayMessagePos = rand.Next(1, m_messages.Count);
+                // TODO: make the function more random / use items that were not shown
+
+                // TODO: make this a property / function / event
+                Message returnMsg = m_messages[displayMessagePos];
+                returnMsg.m_timesPublished++;
+                returnMsg.m_lastPublished = DateTime.Now;
+
+                return returnMsg;
+            }
+        }
     }
 }
