@@ -17,21 +17,21 @@ namespace Mesaje.Data
         /// </summary>
         /// <param name="filePath">The XML file path.</param>
         /// <returns>The true state of success for loading the XML data.</returns>
-        bool LoadXml(string filePath)
+        public static MessageManagement LoadXml(string filePath)
         {
             if (!System.IO.File.Exists(filePath))
             {
-                return false;
+                return null;
             }
 
             FileStream reader = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
             System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(typeof(MessageManagement));
-            
+
             try
             {
                 // Load the object saved above by using the Deserialize function
                 MessageManagement loadedObj = (MessageManagement)serializer.Deserialize(reader);
-                this.m_messages = loadedObj.m_messages;
+                return loadedObj;
             }
             catch
             {
@@ -41,8 +41,6 @@ namespace Mesaje.Data
             {
                 reader.Close();
             }
-
-            return false;
         }
 
         /// <summary>

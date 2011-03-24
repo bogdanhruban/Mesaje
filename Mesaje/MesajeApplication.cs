@@ -7,6 +7,8 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Resources;
 using System.Reflection;
+using System.Configuration;
+using Mesaje.Data;
 
 namespace Mesaje
 {
@@ -19,6 +21,10 @@ namespace Mesaje
         MenuItem m_newMessageMenuItem;
         MenuItem m_optionsMenuItem;
         IContainer m_components;
+        #endregion
+
+        #region Locals
+        MessageManagement m_messages;
         #endregion
 
         public MesajeApplication()
@@ -61,12 +67,24 @@ namespace Mesaje
             this.Resize += new EventHandler(MesajeApplication_Resize);
             m_notifyIcon.Visible = true;
             m_notifyIcon.DoubleClick += new EventHandler(notifyIcon_DoubleClick);
+
+            LoadItems();
         }
 
         protected void LoadItems()
         {
             // read the config file
+            try
+            {
+                // Get the appSettings section.
+                AppSettingsReader appSettings = new AppSettingsReader();
+                m_messages = MessageManagement.LoadXml((string)(appSettings.GetValue("MessagesXml", typeof(string))));
 
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("[LoadItems: {0}]", e.ToString());
+            }
         }
 
         protected override void Dispose(bool disposing)
