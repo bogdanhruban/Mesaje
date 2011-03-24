@@ -8,8 +8,7 @@ namespace Mesaje.Data
 {
     public class MessageManagement
     {
-        // TODO: replace with Message objects
-        List<string> m_messages = new List<string>();
+        List<Message> m_messages = new List<Message>();
 
         /// <summary>
         /// Load the messages from a XML file.

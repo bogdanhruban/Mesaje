@@ -5,6 +5,8 @@ using System.Text;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Drawing;
+using System.Resources;
+using System.Reflection;
 
 namespace Mesaje
 {
@@ -33,7 +35,6 @@ namespace Mesaje
             // initialize the menu items
             m_exitMenuItem.Index = 0;
             m_exitMenuItem.Text = "E&xit";
-            m_exitMenuItem.BarBreak = true;
             m_exitMenuItem.Click += new EventHandler(exitMenuItem_Click);
 
             m_optionsMenuItem.Index = 1;
@@ -46,8 +47,7 @@ namespace Mesaje
 
             // create the notification icon
             m_notifyIcon = new NotifyIcon();
-            // TODO: set the icon
-            //m_notifyIcon.Icon = new Icon("application.ico");
+            m_notifyIcon.Icon = Resource.Application;
 
             m_notifyIcon.ContextMenu = m_contextMenu;
             m_notifyIcon.Text = "Mesaje diverse";
@@ -80,7 +80,7 @@ namespace Mesaje
             {
                 m_notifyIcon.Visible = true;
                 m_notifyIcon.ShowBalloonTip(500);
-                this.Hide();
+                //this.Hide();
             }
             //else if (FormWindowState.Normal == this.WindowState)
             //{
