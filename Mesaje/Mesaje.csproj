@@ -84,6 +84,10 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Data\Mesaj.cs" />
+    <Compile Include="Data\MessageManagement.cs" />
+    <Compile Include="MesajeApplication.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
