@@ -146,6 +146,17 @@ namespace Mesaje
             taskbarNotifier.KeepVisibleOnMousOver = true;	// Added Rev 002
             taskbarNotifier.ReShowOnMouseOver = false;			// Added Rev 002
             taskbarNotifier.Show(msg.Title, msg.Body, 500, 6000, 500);
+
+            // original values
+            //textBoxDelayShowing.Text = "500";
+            //textBoxDelayStaying.Text = "3000";
+            //textBoxDelayHiding.Text = "500";
+            //checkBoxSelectionRectangle.Checked = true;
+            //checkBoxTitleClickable.Checked = false;
+            //checkBoxContentClickable.Checked = true;
+            //checkBoxCloseClickable.Checked = true;
+            //checkBoxKeepVisibleOnMouseOver.Checked = true;		// Added Rev 002
+            //checkBoxReShowOnMouseOver.Checked = false;			// Added Rev 002
         }
 
         #region TaskbarNotifierEvents
