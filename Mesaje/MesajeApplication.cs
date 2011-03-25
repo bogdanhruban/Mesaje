@@ -138,6 +138,18 @@ namespace Mesaje
         {
             // display a message window
             Data.Message msg = messages.DisplayMessage;
+
+            if (taskbarNotifier == null)
+            {
+                taskbarNotifier = new TaskbarNotifier();
+                taskbarNotifier.SetBackgroundBitmap(Resource.skin3, Color.FromArgb(255, 0, 255));
+                taskbarNotifier.SetCloseBitmap(Resource.close, Color.FromArgb(255, 0, 255), new Point(280, 57));
+                taskbarNotifier.TitleRectangle = new Rectangle(150, 57, 125, 28);
+                taskbarNotifier.ContentRectangle = new Rectangle(75, 92, 215, 55);
+                taskbarNotifier.TitleClick += new EventHandler(TitleClick);
+                taskbarNotifier.ContentClick += new EventHandler(ContentClick);
+                taskbarNotifier.CloseClick += new EventHandler(CloseClick);
+            }
             
             taskbarNotifier.CloseClickable = true;
             taskbarNotifier.TitleClickable = true;
@@ -145,7 +157,7 @@ namespace Mesaje
             taskbarNotifier.EnableSelectionRectangle = true;
             taskbarNotifier.KeepVisibleOnMousOver = true;	// Added Rev 002
             taskbarNotifier.ReShowOnMouseOver = false;			// Added Rev 002
-            taskbarNotifier.Show(msg.Title, msg.Body, 500, 6000, 500);
+            taskbarNotifier.Show(msg.Title, msg.Body, 500, 1000, 500);
 
             // original values
             //textBoxDelayShowing.Text = "500";
@@ -172,6 +184,7 @@ namespace Mesaje
         {
             MessageBox.Show("Close clicked!");
             taskbarNotifier.Close();
+            taskbarNotifier = null;
         }
         #endregion
 
