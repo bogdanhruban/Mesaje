@@ -195,7 +195,7 @@ namespace Mesaje
             {
                 notifyIcon.Visible = true;
                 notifyIcon.ShowBalloonTip(500);
-                //this.Hide();
+                this.Hide();
             }
             //else if (FormWindowState.Normal == this.WindowState)
             //{
@@ -209,7 +209,10 @@ namespace Mesaje
 
             // Set the WindowState to normal if the form is minimized.
             if (this.WindowState == FormWindowState.Minimized)
-                this.WindowState = FormWindowState.Normal;
+            {
+                //this.WindowState = FormWindowState.Normal;
+                this.Show();
+            }
 
             // Activate the form.
             this.Activate();
@@ -231,6 +234,10 @@ namespace Mesaje
         {
             // Close the form, which closes the application.
             MessageBox.Show("Show new message clicked!");
+            
+            messageDisplayTimer.Stop();
+            MessageTimeout(null, null);
+            messageDisplayTimer.Start();
         }
 
         /// <summary>
