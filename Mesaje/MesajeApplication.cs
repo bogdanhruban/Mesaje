@@ -24,7 +24,7 @@ namespace Mesaje
         #endregion
 
         #region Locals
-        MessageManagement m_messages;
+        MessageManagement messages;
         #endregion
 
         public MesajeApplication()
@@ -69,6 +69,13 @@ namespace Mesaje
             m_notifyIcon.DoubleClick += new EventHandler(notifyIcon_DoubleClick);
 
             LoadItems();
+
+            // add a dummy item
+            Mesaje.Data.Message dummy = new Data.Message();
+            dummy.ID = 1;
+            dummy.Body = "Dummy body";
+            dummy.Title = "Dummy title -- Mooooou";
+            messages.Add(dummy);
         }
 
         protected void LoadItems()
@@ -78,19 +85,23 @@ namespace Mesaje
             {
                 // Get the appSettings section.
                 AppSettingsReader appSettings = new AppSettingsReader();
-                m_messages = MessageManagement.LoadXml((string)(appSettings.GetValue("MessagesXml", typeof(string))));
-
+                messages = MessageManagement.LoadXml((string)(appSettings.GetValue("MessagesXml", typeof(string))));
             }
             catch (Exception e)
             {
                 Console.WriteLine("[LoadItems: {0}]", e.ToString());
+            }
+            finally
+            {
+                if (messages == null)
+                    messages = new MessageManagement();
             }
         }
 
         protected override void Dispose(bool disposing)
         {
             AppSettingsReader appSettings = new AppSettingsReader();
-            MessageManagement.SaveToXml((string)(appSettings.GetValue("MessagesXml", typeof(string))), m_messages);
+            //MessageManagement.SaveToXml((string)(appSettings.GetValue("MessagesXml", typeof(string))), messages);
 
             // Clean up any components being used.
             if (disposing)

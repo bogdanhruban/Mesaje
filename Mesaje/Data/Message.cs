@@ -12,7 +12,7 @@ namespace Mesaje.Data
         uint id = 0;
         string body = null;
         string title = null;
-        DateTime addDate;
+        DateTime addDate = DateTime.Now;
         DateTime publishDate;
         DateTime lastPublished;
         uint timesPublished = 0;
@@ -26,6 +26,10 @@ namespace Mesaje.Data
             {
                 return id;
             }
+            internal set
+            {
+                id = value;
+            }
         }
 
         [XmlAttribute("Body", typeof(string))]
@@ -34,6 +38,10 @@ namespace Mesaje.Data
             get
             {
                 return body;
+            }
+            internal set
+            {
+                body = value;
             }
         }
 
@@ -44,6 +52,10 @@ namespace Mesaje.Data
             {
                 return title;
             }
+            internal set
+            {
+                title = value;
+            }
         }
 
         [XmlAttribute("AddDate", typeof(DateTime))]
@@ -52,6 +64,10 @@ namespace Mesaje.Data
             get
             {
                 return addDate;
+            }
+            internal set
+            {
+                addDate = value;
             }
         }
 
@@ -62,6 +78,10 @@ namespace Mesaje.Data
             {
                 return lastPublished;
             }
+            internal set
+            {
+                lastPublished = value;
+            }
         }
 
         [XmlAttribute("PublishDate", typeof(DateTime))]
@@ -71,6 +91,10 @@ namespace Mesaje.Data
             {
                 return publishDate;
             }
+            internal set
+            {
+                publishDate = value;
+            }
         }
 
         [XmlAttribute("TimesPublished", typeof(uint))]
@@ -79,6 +103,10 @@ namespace Mesaje.Data
             get
             {
                 return timesPublished;
+            }
+            internal set
+            {
+                timesPublished = value;
             }
         }
 

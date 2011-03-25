@@ -25,14 +25,12 @@ namespace Mesaje.Data
             }
 
             FileStream reader = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
-            XmlSerializer serializer = new XmlSerializer(typeof(MessageManagement));
-
+            
             try
             {
+                XmlSerializer serializer = new XmlSerializer(typeof(MessageManagement));
                 // Load the object saved above by using the Deserialize function
-                MessageManagement loadedObj = (MessageManagement)serializer.Deserialize(reader);
-
-                return loadedObj;
+                return (MessageManagement)serializer.Deserialize(reader);
             }
             catch
             {
@@ -51,10 +49,10 @@ namespace Mesaje.Data
         /// <param name="messages">The Messages to be saved.</param>
         public static void SaveToXml(string filePath, MessageManagement messages)
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(MessageManagement));
             System.IO.FileStream stream = new System.IO.FileStream(filePath, FileMode.Create);
             try
             {
+                XmlSerializer serializer = new XmlSerializer(typeof(MessageManagement));
                 serializer.Serialize(stream, messages);
             }
             catch
