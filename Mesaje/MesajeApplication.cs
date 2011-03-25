@@ -15,12 +15,12 @@ namespace Mesaje
     public class MesajeApplication : Form
     {
         #region Tray items
-        NotifyIcon m_notifyIcon;
-        ContextMenu m_contextMenu;
-        MenuItem m_exitMenuItem;
-        MenuItem m_newMessageMenuItem;
-        MenuItem m_optionsMenuItem;
-        IContainer m_components;
+        NotifyIcon notifyIcon;
+        ContextMenu contextMenu;
+        MenuItem exitMenuItem;
+        MenuItem newMessageMenuItem;
+        MenuItem optionsMenuItem;
+        IContainer components;
         #endregion
 
         #region Locals
@@ -29,44 +29,44 @@ namespace Mesaje
 
         public MesajeApplication()
         {
-            m_notifyIcon = new NotifyIcon();
-            m_contextMenu = new ContextMenu();
-            m_exitMenuItem = new MenuItem();
-            m_newMessageMenuItem = new MenuItem();
-            m_optionsMenuItem = new MenuItem();
+            notifyIcon = new NotifyIcon();
+            contextMenu = new ContextMenu();
+            exitMenuItem = new MenuItem();
+            newMessageMenuItem = new MenuItem();
+            optionsMenuItem = new MenuItem();
 
             // initialize the context menu
-            m_contextMenu.MenuItems.AddRange(new MenuItem[] { m_exitMenuItem, m_optionsMenuItem, m_newMessageMenuItem });
+            contextMenu.MenuItems.AddRange(new MenuItem[] { exitMenuItem, optionsMenuItem, newMessageMenuItem });
 
             // initialize the menu items
-            m_exitMenuItem.Index = 0;
-            m_exitMenuItem.Text = "E&xit";
-            m_exitMenuItem.Click += new EventHandler(exitMenuItem_Click);
+            exitMenuItem.Index = 0;
+            exitMenuItem.Text = "E&xit";
+            exitMenuItem.Click += new EventHandler(exitMenuItem_Click);
 
-            m_optionsMenuItem.Index = 1;
-            m_optionsMenuItem.Text = "&Options";
-            m_optionsMenuItem.Click += new EventHandler(optionsMenuItem_Click);
+            optionsMenuItem.Index = 1;
+            optionsMenuItem.Text = "&Options";
+            optionsMenuItem.Click += new EventHandler(optionsMenuItem_Click);
 
-            m_newMessageMenuItem.Index = 2;
-            m_newMessageMenuItem.Text = "Arata mesaj &nou";
-            m_newMessageMenuItem.Click += new EventHandler(newMessageMenuItem_Click);
+            newMessageMenuItem.Index = 2;
+            newMessageMenuItem.Text = "Arata mesaj &nou";
+            newMessageMenuItem.Click += new EventHandler(newMessageMenuItem_Click);
 
             // create the notification icon
-            m_notifyIcon = new NotifyIcon();
-            m_notifyIcon.Icon = Resource.Application;
+            notifyIcon = new NotifyIcon();
+            notifyIcon.Icon = Resource.Application;
 
-            m_notifyIcon.ContextMenu = m_contextMenu;
-            m_notifyIcon.Text = "Mesaje diverse";
-            m_notifyIcon.BalloonTipIcon = ToolTipIcon.Info;
-            m_notifyIcon.BalloonTipText = "Apasati pe icoana pentru mesaje diverse.";
-            m_notifyIcon.BalloonTipTitle = "Mesaje diverse";
-            m_notifyIcon.Visible = true;
-            m_notifyIcon.DoubleClick += new EventHandler(notifyIcon_DoubleClick);
+            notifyIcon.ContextMenu = contextMenu;
+            notifyIcon.Text = "Mesaje diverse";
+            notifyIcon.BalloonTipIcon = ToolTipIcon.Info;
+            notifyIcon.BalloonTipText = "Apasati pe icoana pentru mesaje diverse.";
+            notifyIcon.BalloonTipTitle = "Mesaje diverse";
+            notifyIcon.Visible = true;
+            notifyIcon.DoubleClick += new EventHandler(notifyIcon_DoubleClick);
 
             // add the resize event
             this.Resize += new EventHandler(MesajeApplication_Resize);
-            m_notifyIcon.Visible = true;
-            m_notifyIcon.DoubleClick += new EventHandler(notifyIcon_DoubleClick);
+            notifyIcon.Visible = true;
+            notifyIcon.DoubleClick += new EventHandler(notifyIcon_DoubleClick);
 
             LoadItems();
 
@@ -103,10 +103,12 @@ namespace Mesaje
             AppSettingsReader appSettings = new AppSettingsReader();
             //MessageManagement.SaveToXml((string)(appSettings.GetValue("MessagesXml", typeof(string))), messages);
 
+            notifyIcon.Visible = false;
+
             // Clean up any components being used.
             if (disposing)
-                if (m_components != null)
-                    m_components.Dispose();
+                if (components != null)
+                    components.Dispose();
 
             base.Dispose(disposing);
         }
@@ -116,8 +118,8 @@ namespace Mesaje
         {
             if (FormWindowState.Minimized == this.WindowState)
             {
-                m_notifyIcon.Visible = true;
-                m_notifyIcon.ShowBalloonTip(500);
+                notifyIcon.Visible = true;
+                notifyIcon.ShowBalloonTip(500);
                 //this.Hide();
             }
             //else if (FormWindowState.Normal == this.WindowState)
