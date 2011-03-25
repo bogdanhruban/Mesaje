@@ -27,11 +27,19 @@ namespace Mesaje
         #region Locals
         MessageManagement messages;
         Timer messageDisplayTimer;
+        private StatusStrip statusStrip1;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem testToolStripMenuItem;
+        private ToolStripMenuItem exitMenuButtom;
+        private ToolStripMenuItem ajutorToolStripMenuItem;
+        private ToolStripMenuItem despreToolStripMenuItem;
         TaskbarNotifier taskbarNotifier;
         #endregion
 
         public MesajeApplication()
         {
+            InitializeComponent();
+
             notifyIcon = new NotifyIcon();
             contextMenu = new ContextMenu();
             exitMenuItem = new MenuItem();
@@ -247,6 +255,79 @@ namespace Mesaje
         static void Main()
         {
             Application.Run(new MesajeApplication());
+        }
+
+        private void InitializeComponent()
+        {
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ajutorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.despreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitMenuButtom = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Location = new System.Drawing.Point(0, 348);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(479, 22);
+            this.statusStrip1.TabIndex = 0;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.testToolStripMenuItem,
+            this.ajutorToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(479, 24);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // testToolStripMenuItem
+            // 
+            this.testToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitMenuButtom});
+            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.testToolStripMenuItem.Text = "Fisier";
+            // 
+            // ajutorToolStripMenuItem
+            // 
+            this.ajutorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.despreToolStripMenuItem});
+            this.ajutorToolStripMenuItem.Name = "ajutorToolStripMenuItem";
+            this.ajutorToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.ajutorToolStripMenuItem.Text = "Ajutor";
+            // 
+            // despreToolStripMenuItem
+            // 
+            this.despreToolStripMenuItem.Name = "despreToolStripMenuItem";
+            this.despreToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.despreToolStripMenuItem.Text = "Despre";
+            // 
+            // exitMenuButtom
+            // 
+            this.exitMenuButtom.Name = "exitMenuButtom";
+            this.exitMenuButtom.Size = new System.Drawing.Size(152, 22);
+            this.exitMenuButtom.Text = "Iesire";
+            this.exitMenuButtom.Click += new EventHandler(exitMenuItem_Click);
+            // 
+            // MesajeApplication
+            // 
+            this.ClientSize = new System.Drawing.Size(479, 370);
+            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
+            this.Name = "MesajeApplication";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
     };
 
