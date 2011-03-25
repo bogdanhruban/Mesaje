@@ -9,10 +9,9 @@ using System.Xml.Serialization;
 
 namespace Mesaje.Data
 {
-    public class MessageManagement
+    [XmlRoot("Messages")]
+    public class MessageManagement : List<Message>
     {
-        List<Message> m_messages = new List<Message>();
-
         /// <summary>
         /// Load the messages from a XML file.
         /// </summary>
@@ -69,31 +68,21 @@ namespace Mesaje.Data
             }
         }
 
-        [XmlArray("Message")]
-        public List<Message> Messages
-        {
-            get
-            {
-                return m_messages;
-            }
-        }
-
         [XmlIgnore()]
         public Message DisplayMessage
         {
             get
             {
-                if (m_messages.Count == 0)
+                if (this.Count == 0)
                     return null;
                 
                 Random rand = new Random(DateTime.Now.Second);
-                int displayMessagePos = rand.Next(1, m_messages.Count);
+                int displayMessagePos = rand.Next(1, this.Count);
                 // TODO: make the function more random / use items that were not shown
 
                 // TODO: make this a property / function / event
-                Message returnMsg = m_messages[displayMessagePos];
-                returnMsg.m_timesPublished++;
-                returnMsg.m_lastPublished = DateTime.Now;
+                Message returnMsg = this[displayMessagePos];
+                returnMsg.Publish();
 
                 return returnMsg;
             }
