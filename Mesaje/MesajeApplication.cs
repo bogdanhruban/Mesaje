@@ -9,6 +9,7 @@ using System.Resources;
 using System.Reflection;
 using System.Configuration;
 using Mesaje.Data;
+using CustomUIControls;
 
 namespace Mesaje
 {
@@ -25,6 +26,8 @@ namespace Mesaje
 
         #region Locals
         MessageManagement messages;
+        Timer messageDisplayTimer;
+        TaskbarNotifier taskbarNotifier;
         #endregion
 
         public MesajeApplication()
@@ -68,6 +71,23 @@ namespace Mesaje
             notifyIcon.Visible = true;
             notifyIcon.DoubleClick += new EventHandler(notifyIcon_DoubleClick);
 
+            AppSettingsReader appSettings = new AppSettingsReader();
+            // set the timer
+            messageDisplayTimer = new Timer();
+            messageDisplayTimer.Interval = (int)(appSettings.GetValue("MessageInterval", typeof(int)));
+            messageDisplayTimer.Tick += new EventHandler(MessageTimeout);
+            messageDisplayTimer.Enabled = true;
+            messageDisplayTimer.Start();
+
+            taskbarNotifier = new TaskbarNotifier();
+            taskbarNotifier.SetBackgroundBitmap(Resource.skin3, Color.FromArgb(255, 0, 255));
+            taskbarNotifier.SetCloseBitmap(Resource.close, Color.FromArgb(255, 0, 255), new Point(280, 57));
+            taskbarNotifier.TitleRectangle = new Rectangle(150, 57, 125, 28);
+            taskbarNotifier.ContentRectangle = new Rectangle(75, 92, 215, 55);
+            taskbarNotifier.TitleClick += new EventHandler(TitleClick);
+            taskbarNotifier.ContentClick += new EventHandler(ContentClick);
+            taskbarNotifier.CloseClick += new EventHandler(CloseClick);
+
             LoadItems();
 
             // add a dummy item
@@ -104,6 +124,7 @@ namespace Mesaje
             //MessageManagement.SaveToXml((string)(appSettings.GetValue("MessagesXml", typeof(string))), messages);
 
             notifyIcon.Visible = false;
+            messageDisplayTimer.Stop();
 
             // Clean up any components being used.
             if (disposing)
@@ -112,6 +133,36 @@ namespace Mesaje
 
             base.Dispose(disposing);
         }
+
+        private void MessageTimeout(object sender, EventArgs e)
+        {
+            // display a message window
+            Data.Message msg = messages.DisplayMessage;
+            
+            taskbarNotifier.CloseClickable = true;
+            taskbarNotifier.TitleClickable = true;
+            taskbarNotifier.ContentClickable = true;
+            taskbarNotifier.EnableSelectionRectangle = true;
+            taskbarNotifier.KeepVisibleOnMousOver = true;	// Added Rev 002
+            taskbarNotifier.ReShowOnMouseOver = false;			// Added Rev 002
+            taskbarNotifier.Show(msg.Title, msg.Body, 500, 6000, 500);
+        }
+
+        #region TaskbarNotifierEvents
+        private void TitleClick(object sender, EventArgs e)
+        {
+            MessageBox.Show("Title clicked!");
+        }
+        private void ContentClick(object sender, EventArgs e)
+        {
+            MessageBox.Show("Content clicked!");
+        }
+        private void CloseClick(object sender, EventArgs e)
+        {
+            MessageBox.Show("Close clicked!");
+            taskbarNotifier.Close();
+        }
+        #endregion
 
 
         private void MesajeApplication_Resize(object sender, EventArgs e)
@@ -127,7 +178,6 @@ namespace Mesaje
             //    m_notifyIcon.Visible = false;
             //}
         }
-
 
         private void notifyIcon_DoubleClick(object Sender, EventArgs e)
         {

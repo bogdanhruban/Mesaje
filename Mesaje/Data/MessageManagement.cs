@@ -79,7 +79,7 @@ namespace Mesaje.Data
                 // TODO: make the function more random / use items that were not shown
 
                 // TODO: make this a property / function / event
-                Message returnMsg = this[displayMessagePos];
+                Message returnMsg = this[displayMessagePos-1];
                 returnMsg.Publish();
 
                 return returnMsg;
