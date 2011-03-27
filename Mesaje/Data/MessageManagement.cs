@@ -42,6 +42,30 @@ namespace Mesaje.Data
             }
         }
 
+        public static MessageManagement UpdateXml()
+        {
+            // Create a new XmlDocument  
+            XmlDocument doc = new XmlDocument();
+
+            // Load data  
+            doc.Load("http://mesaje.hruban.ro/listeazaXML.php");
+
+            // Set up namespace manager for XPath  
+            //XmlNamespaceManager ns = new XmlNamespaceManager(doc.NameTable);
+            //ns.AddNamespace("yweather", "http://xml.weather.yahoo.com/ns/rss/1.0");
+
+            // Get forecast with XPath  
+            XmlNodeList nodes = doc.SelectNodes("/mesaje/mesaj");
+
+            foreach (XmlNode node in nodes)
+            {
+                Console.WriteLine("{0}",
+                                    node.FirstChild.InnerText);
+            }
+
+            return null;
+        }
+
         /// <summary>
         /// Save the messages to a XML file.
         /// </summary>

@@ -97,6 +97,7 @@ namespace Mesaje
             taskbarNotifier.CloseClick += new EventHandler(CloseClick);
 
             LoadItems();
+            MessageManagement.UpdateXml();
 
             // add a dummy item
             Mesaje.Data.Message dummy = new Data.Message();
@@ -164,7 +165,7 @@ namespace Mesaje
             taskbarNotifier.ContentClickable = true;
             taskbarNotifier.EnableSelectionRectangle = true;
             taskbarNotifier.KeepVisibleOnMousOver = true;	// Added Rev 002
-            taskbarNotifier.ReShowOnMouseOver = false;			// Added Rev 002
+            taskbarNotifier.ReShowOnMouseOver = true;			// Added Rev 002
 
             messageDisplayTimer.Stop();
             taskbarNotifier.Show(msg.Title, msg.Body, 500, 1000, 500);
