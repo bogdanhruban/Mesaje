@@ -101,8 +101,8 @@ namespace Mesaje
             // add a dummy item
             Mesaje.Data.Message dummy = new Data.Message();
             dummy.ID = 1;
-            dummy.Body = "Dummy body";
-            dummy.Title = "Dummy title -- Mooooou";
+            dummy.Body = "Dummy body,the red cow is crossing the street.";
+            dummy.Title = "Dummy title";
             messages.Add(dummy);
         }
 
@@ -165,7 +165,10 @@ namespace Mesaje
             taskbarNotifier.EnableSelectionRectangle = true;
             taskbarNotifier.KeepVisibleOnMousOver = true;	// Added Rev 002
             taskbarNotifier.ReShowOnMouseOver = false;			// Added Rev 002
+
+            messageDisplayTimer.Stop();
             taskbarNotifier.Show(msg.Title, msg.Body, 500, 1000, 500);
+            messageDisplayTimer.Start();
 
             // original values
             //textBoxDelayShowing.Text = "500";
@@ -248,6 +251,12 @@ namespace Mesaje
             messageDisplayTimer.Start();
         }
 
+        private void about_Click(object Sender, EventArgs e)
+        {
+            FrmAbout about = new FrmAbout();
+            about.ShowDialog();
+        }
+
         /// <summary>
         /// Entry point in the application
         /// </summary>
@@ -308,6 +317,7 @@ namespace Mesaje
             this.despreToolStripMenuItem.Name = "despreToolStripMenuItem";
             this.despreToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.despreToolStripMenuItem.Text = "Despre";
+            this.despreToolStripMenuItem.Click += new EventHandler(about_Click);
             // 
             // exitMenuButtom
             // 

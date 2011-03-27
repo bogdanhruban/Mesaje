@@ -81,6 +81,13 @@ namespace Mesaje {
             }
         }
         
+        internal static System.Drawing.Bitmap leaf {
+            get {
+                object obj = ResourceManager.GetObject("leaf", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap skin {
             get {
                 object obj = ResourceManager.GetObject("skin", resourceCulture);
@@ -98,6 +105,13 @@ namespace Mesaje {
         internal static System.Drawing.Bitmap skin3 {
             get {
                 object obj = ResourceManager.GetObject("skin3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap tree {
+            get {
+                object obj = ResourceManager.GetObject("tree", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
