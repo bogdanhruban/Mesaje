@@ -154,70 +154,63 @@ namespace Mesaje.Data
             XmlNode tmpNode = null;
             
             // get the title
-            tmpNode = node.SelectSingleNode("/mesaj/titlu");
+            tmpNode = node.SelectSingleNode("titlu");
             if (tmpNode != null)
             {
                 msg.Title = tmpNode.InnerText;
             }
 
             // get the body
-            tmpNode = node.SelectSingleNode("/mesaj/continut");
+            tmpNode = node.SelectSingleNode("continut");
             if (tmpNode != null)
             {
                 msg.Body = tmpNode.InnerText;
             }
 
             // get the author
-            tmpNode = node.SelectSingleNode("/mesaj/autor");
+            tmpNode = node.SelectSingleNode("autor");
             if (tmpNode != null)
             {
                 msg.Author = tmpNode.InnerText;
             }
 
             // get the author link
-            tmpNode = node.SelectSingleNode("/mesaj/autorlink");
+            tmpNode = node.SelectSingleNode("autorlink");
             if (tmpNode != null)
             {
                 msg.AuthorLink = tmpNode.InnerText;
             }
 
             // get the author id
-            tmpNode = node.SelectSingleNode("/mesaj/id");
-            if (tmpNode != null)
-            {
-                msg.ID = uint.Parse(tmpNode.InnerText);
-            }
-
-            // get the author id
-            tmpNode = node.SelectSingleNode("/mesaj/id");
+            tmpNode = node.SelectSingleNode("id");
             if (tmpNode != null)
             {
                 msg.ID = uint.Parse(tmpNode.InnerText);
             }
 
             // get the author timesPublished
-            tmpNode = node.SelectSingleNode("/mesaj/numarpublicatii");
+            tmpNode = node.SelectSingleNode("numarpublicatii");
             if (tmpNode != null)
             {
                 msg.TimesPublished = uint.Parse(tmpNode.InnerText);
             }
 
             // get the author addDate
-            tmpNode = node.SelectSingleNode("/mesaj/dataadaugarii");
+            tmpNode = node.SelectSingleNode("dataadaugarii");
             if (tmpNode != null)
             {
                 msg.AddDate = DateTime.Parse(tmpNode.InnerText);
             }
 
             // get the author lastpublished
-            tmpNode = node.SelectSingleNode("/mesaj/ultimapublicare");
+            tmpNode = node.SelectSingleNode("ultimapublicare");
             if (tmpNode != null)
             {
                 msg.LastPublished = DateTime.Parse(tmpNode.InnerText);
             }
 
             // get the author datapublicarii
-            tmpNode = node.SelectSingleNode("/mesaj/datapublicarii");
+            tmpNode = node.SelectSingleNode("datapublicarii");
             if (tmpNode != null)
             {
                 msg.PublishDate = DateTime.Parse(tmpNode.InnerText);

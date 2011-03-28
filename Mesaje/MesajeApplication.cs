@@ -170,6 +170,8 @@ namespace Mesaje
 
             //LoadItems();
             //MessageManagement.UpdateXml();
+            // start updating the message list
+            UpdateMessagesTimeout(null, null);
 
             // add a dummy item
             Mesaje.Data.Message dummy = new Data.Message();
@@ -244,6 +246,12 @@ namespace Mesaje
             lock (lockMessages)
             {
                 msg = messages.DisplayMessage;
+            }
+
+            if (msg == null)
+            {
+                Logger.Write("No DisplayMessage was received.", LoggerErrorLevels.WARNING);
+                return;
             }
 
             if (taskbarNotifier == null)

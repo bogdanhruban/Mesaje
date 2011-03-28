@@ -6,6 +6,7 @@ using System.Collections;
 using System.Xml;
 using System.IO;
 using System.Xml.Serialization;
+using Mesaje.Util;
 
 namespace Mesaje.Data
 {
@@ -44,26 +45,28 @@ namespace Mesaje.Data
 
         public static MessageManagement UpdateXml()
         {
-            // Create a new XmlDocument  
-            XmlDocument doc = new XmlDocument();
-
-            // Load data  
-            doc.Load("http://mesaje.hruban.ro/listeazaXML.php");
-
-            // Set up namespace manager for XPath  
-            //XmlNamespaceManager ns = new XmlNamespaceManager(doc.NameTable);
-            //ns.AddNamespace("yweather", "http://xml.weather.yahoo.com/ns/rss/1.0");
-
-            // Get forecast with XPath  
-            XmlNodeList nodes = doc.SelectNodes("/mesaje/mesaj");
-
-            foreach (XmlNode node in nodes)
+            MessageManagement msgM = new MessageManagement();
+            try
             {
-                Console.WriteLine("{0}",
-                                    node.FirstChild.InnerText);
+                // Create a new XmlDocument  
+                XmlDocument doc = new XmlDocument();
+
+                // Load data  
+                doc.Load("http://mesaje.hruban.ro/listeazaXML.php");
+
+                XmlNodeList nodes = doc.SelectNodes("/mesaje/mesaj");
+
+                foreach (XmlNode node in nodes)
+                {
+                    msgM.Add(Message.FromXml(node));
+                }
+            }
+            catch (Exception e)
+            {
+                Logger.Write(e, LoggerErrorLevels.ERROR);
             }
 
-            return null;
+            return msgM;
         }
 
         /// <summary>
