@@ -24,15 +24,17 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>http://hruban.ro/Projects/Mesaje/</InstallUrl>
-    <UpdateUrl>http://hruban.ro/Projects/Mesaje/</UpdateUrl>
-    <SupportUrl>http://hruban.ro</SupportUrl>
-    <ErrorReportUrl>http://hruban.ro</ErrorReportUrl>
+    <InstallUrl>http://mesaje.hruban.ro/Install/</InstallUrl>
+    <UpdateUrl>http://mesaje.hruban.ro/Install/</UpdateUrl>
+    <SupportUrl>http://mesaje.hruban.ro</SupportUrl>
+    <ErrorReportUrl>http://mesaje.hruban.ro</ErrorReportUrl>
     <ProductName>Mesaje</ProductName>
     <PublisherName>Bogdan Hruban</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>10</ApplicationRevision>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>11</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
