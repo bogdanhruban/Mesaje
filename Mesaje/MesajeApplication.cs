@@ -22,7 +22,6 @@ namespace Mesaje
         MenuItem exitMenuItem;
         MenuItem newMessageMenuItem;
         MenuItem optionsMenuItem;
-        IContainer components;
         #endregion
 
         #region Locals
@@ -216,11 +215,16 @@ namespace Mesaje
 
             notifyIcon.Visible = false;
             messageDisplayTimer.Stop();
+            
+            if (backWorker.WorkerSupportsCancellation == true)
+            {
+                backWorker.CancelAsync();
+            }
 
             // Clean up any components being used.
-            if (disposing)
-                if (components != null)
-                    components.Dispose();
+            //if (disposing)
+            //    if (components != null)
+            //        components.Dispose();
 
             base.Dispose(disposing);
         }
