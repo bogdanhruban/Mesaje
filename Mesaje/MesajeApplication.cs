@@ -26,15 +26,72 @@ namespace Mesaje
         #endregion
 
         #region Locals
-        MessageManagement messages;
+        MessageManagement messages = new MessageManagement();
+        System.Object lockMessages = new System.Object();
+
         Timer messageDisplayTimer;
-        private StatusStrip statusStrip1;
+        Timer messageUpdateTimer;
+        private StatusStrip statusBar;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem testToolStripMenuItem;
         private ToolStripMenuItem exitMenuButtom;
         private ToolStripMenuItem ajutorToolStripMenuItem;
         private ToolStripMenuItem despreToolStripMenuItem;
         TaskbarNotifier taskbarNotifier;
+
+        BackgroundWorker backWorker = new BackgroundWorker();
+        #endregion
+
+        #region Update MessageList
+        private void bw_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = sender as BackgroundWorker;
+
+            if ((worker.CancellationPending == true))
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+                worker.ReportProgress(10);
+                MessageManagement newList = MessageManagement.UpdateXml();
+                worker.ReportProgress(60);
+                // merge lists / replace old list?
+                // replace first -- investigate later :)
+                if (newList != null)
+                {
+                    lock (lockMessages)
+                    {
+                        messages = newList;
+                    }
+                }
+                worker.ReportProgress(100);
+            }
+        }
+
+        private void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if ((e.Cancelled == true))
+            {
+                this.statusBar.Text = "Canceled!";
+            }
+
+            else if (!(e.Error == null))
+            {
+                this.statusBar.Text = ("Error: " + e.Error.Message);
+                Logger.Write(e.Error.Message, LoggerErrorLevels.ERROR);
+            }
+
+            else
+            {
+                this.statusBar.Text = "Done!";
+            }
+        }
+
+        private void bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            this.statusBar.Text = "Updating message list: " + (e.ProgressPercentage.ToString() + "%");
+        }
         #endregion
 
         public MesajeApplication()
@@ -46,6 +103,13 @@ namespace Mesaje
             exitMenuItem = new MenuItem();
             newMessageMenuItem = new MenuItem();
             optionsMenuItem = new MenuItem();
+
+            // set up the Message Updater
+            backWorker.WorkerReportsProgress = true;
+            backWorker.WorkerSupportsCancellation = true;
+            backWorker.DoWork += new DoWorkEventHandler(bw_DoWork);
+            backWorker.ProgressChanged += new ProgressChangedEventHandler(bw_ProgressChanged);
+            backWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bw_RunWorkerCompleted);
 
             // initialize the context menu
             contextMenu.MenuItems.AddRange(new MenuItem[] { exitMenuItem, optionsMenuItem, newMessageMenuItem });
@@ -83,10 +147,18 @@ namespace Mesaje
             AppSettingsReader appSettings = new AppSettingsReader();
             // set the timer
             messageDisplayTimer = new Timer();
-            messageDisplayTimer.Interval = (int)(appSettings.GetValue("MessageInterval", typeof(int)));
+            //messageDisplayTimer.Interval = (int)(appSettings.GetValue("MessageInterval", typeof(int)));
+            messageDisplayTimer.Interval = Config.Instance.PublishInterval;
             messageDisplayTimer.Tick += new EventHandler(MessageTimeout);
             messageDisplayTimer.Enabled = true;
             messageDisplayTimer.Start();
+
+
+            messageUpdateTimer = new Timer();
+            messageUpdateTimer.Interval = Config.Instance.MessageUpdateInterval;
+            messageUpdateTimer.Tick += new EventHandler(UpdateMessagesTimeout);
+            messageUpdateTimer.Enabled = true;
+            messageUpdateTimer.Start();
 
             taskbarNotifier = new TaskbarNotifier();
             taskbarNotifier.SetBackgroundBitmap(Resource.skin3, Color.FromArgb(255, 0, 255));
@@ -97,15 +169,18 @@ namespace Mesaje
             taskbarNotifier.ContentClick += new EventHandler(ContentClick);
             taskbarNotifier.CloseClick += new EventHandler(CloseClick);
 
-            LoadItems();
-            MessageManagement.UpdateXml();
+            //LoadItems();
+            //MessageManagement.UpdateXml();
 
             // add a dummy item
             Mesaje.Data.Message dummy = new Data.Message();
             dummy.ID = 1;
             dummy.Body = "Dummy body,the red cow is crossing the street.";
             dummy.Title = "Dummy title";
-            messages.Add(dummy);
+            lock (lockMessages)
+            {
+                messages.Add(dummy);
+            }
         }
 
         protected void LoadItems()
@@ -115,7 +190,10 @@ namespace Mesaje
             {
                 // Get the appSettings section.
                 AppSettingsReader appSettings = new AppSettingsReader();
-                messages = MessageManagement.LoadXml((string)(appSettings.GetValue("MessagesXml", typeof(string))));
+                lock (lockMessages)
+                {
+                    messages = MessageManagement.LoadXml((string)(appSettings.GetValue("MessagesXml", typeof(string))));
+                }
             }
             catch (Exception e)
             {
@@ -123,8 +201,11 @@ namespace Mesaje
             }
             finally
             {
-                if (messages == null)
-                    messages = new MessageManagement();
+                lock (lockMessages)
+                {
+                    if (messages == null)
+                        messages = new MessageManagement();
+                }
             }
         }
 
@@ -143,11 +224,23 @@ namespace Mesaje
 
             base.Dispose(disposing);
         }
+        
+        private void UpdateMessagesTimeout(object sender, EventArgs e)
+        {
+            if (!backWorker.IsBusy)
+            {
+                backWorker.RunWorkerAsync();
+            }
+        }
 
         private void MessageTimeout(object sender, EventArgs e)
         {
+            Data.Message msg = null;
             // display a message window
-            Data.Message msg = messages.DisplayMessage;
+            lock (lockMessages)
+            {
+                msg = messages.DisplayMessage;
+            }
 
             if (taskbarNotifier == null)
             {
@@ -168,9 +261,7 @@ namespace Mesaje
             taskbarNotifier.KeepVisibleOnMousOver = true;	// Added Rev 002
             taskbarNotifier.ReShowOnMouseOver = true;			// Added Rev 002
 
-            messageDisplayTimer.Stop();
-            taskbarNotifier.Show(msg.Title, msg.Body, 500, 1000, 500);
-            messageDisplayTimer.Start();
+            taskbarNotifier.Show(msg.Title, msg.Body, 500, Config.Instance.TimeoutDisplayNotificationWindow, 500);
 
             // original values
             //textBoxDelayShowing.Text = "500";
@@ -270,7 +361,7 @@ namespace Mesaje
 
         private void InitializeComponent()
         {
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.statusBar = new System.Windows.Forms.StatusStrip();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajutorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -281,11 +372,11 @@ namespace Mesaje
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 348);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(479, 22);
-            this.statusStrip1.TabIndex = 0;
-            this.statusStrip1.Text = "statusStrip1";
+            this.statusBar.Location = new System.Drawing.Point(0, 348);
+            this.statusBar.Name = "statusStrip1";
+            this.statusBar.Size = new System.Drawing.Size(479, 22);
+            this.statusBar.TabIndex = 0;
+            this.statusBar.Text = "statusStrip1";
             // 
             // menuStrip1
             // 
@@ -331,7 +422,7 @@ namespace Mesaje
             // MesajeApplication
             // 
             this.ClientSize = new System.Drawing.Size(479, 370);
-            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.statusBar);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MesajeApplication";

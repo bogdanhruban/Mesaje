@@ -7,8 +7,9 @@ namespace Mesaje
 {
     internal class Config
     {
-        int _timeoutDisplayNotificationWindow = 6000; // 6 seconds
-        int _publishInterval = 3600000; // 1 hour
+        int _timeoutDisplayNotificationWindow = 3000; // 6 seconds
+        int _publishInterval = 10000; // 1 hour
+        int _messageUpdateInterval = 6000; // 1 hour
         bool _randomWindows = false;    // use all the bnotification windows available or just the selected one?
         int _notificationWindowId = 1;
         static Config _instance = new Config();
@@ -55,6 +56,21 @@ namespace Mesaje
         }
 
         /// <summary>
+        /// Get / Set the interval when updates for the message list are checked
+        /// </summary>
+        internal int MessageUpdateInterval
+        {
+            get
+            {
+                return _messageUpdateInterval;
+            }
+            set
+            {
+                _messageUpdateInterval = value;
+            }
+        }
+
+        /// <summary>
         /// Get / Set the notification window to be used
         /// </summary>
         internal int NotificationWindowId
@@ -72,7 +88,7 @@ namespace Mesaje
         /// <summary>
         /// Get / Set if all the notification windows should be used
         /// </summary>
-        internal bool NotificationWindowId
+        internal bool UseRandomWindows
         {
             get
             {
