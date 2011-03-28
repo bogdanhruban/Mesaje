@@ -89,8 +89,10 @@
       <DependentUpon>AboutFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Config.cs" />
     <Compile Include="Data\Message.cs" />
     <Compile Include="Data\MessageManagement.cs" />
+    <Compile Include="Logger.cs" />
     <Compile Include="MesajeApplication.cs">
       <SubType>Form</SubType>
     </Compile>

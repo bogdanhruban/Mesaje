@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Xml;
 using System.Windows.Forms;
 
-namespace Facturi.Util
+namespace Mesaje.Util
 {
     /// <summary>
     /// Error levels
@@ -327,6 +327,7 @@ namespace Facturi.Util
         private static bool m_overriteLogFlag = false;
         private static bool m_writeExtendedMessage = true;
         private static bool m_showDebugInfo = false;
+        // TODO: use the app.config file 
         private static string m_configFile = @"/XML/Application/Config.xml";
     }   
 }

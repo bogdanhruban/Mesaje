@@ -10,6 +10,7 @@ using System.Reflection;
 using System.Configuration;
 using Mesaje.Data;
 using CustomUIControls;
+using Mesaje.Util;
 
 namespace Mesaje
 {
@@ -118,7 +119,7 @@ namespace Mesaje
             }
             catch (Exception e)
             {
-                Console.WriteLine("[LoadItems: {0}]", e.ToString());
+                Logger.Write(e, LoggerErrorLevels.ERROR);
             }
             finally
             {
