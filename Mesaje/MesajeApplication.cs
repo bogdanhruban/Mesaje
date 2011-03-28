@@ -114,15 +114,16 @@ namespace Mesaje
             contextMenu.MenuItems.AddRange(new MenuItem[] { exitMenuItem, optionsMenuItem, newMessageMenuItem });
 
             // initialize the menu items
-            exitMenuItem.Index = 0;
+            exitMenuItem.Index = 2;
             exitMenuItem.Text = "E&xit";
             exitMenuItem.Click += new EventHandler(exitMenuItem_Click);
 
             optionsMenuItem.Index = 1;
             optionsMenuItem.Text = "&Options";
             optionsMenuItem.Click += new EventHandler(optionsMenuItem_Click);
+            optionsMenuItem.Enabled = false;
 
-            newMessageMenuItem.Index = 2;
+            newMessageMenuItem.Index = 0;
             newMessageMenuItem.Text = "Arata mesaj &nou";
             newMessageMenuItem.Click += new EventHandler(newMessageMenuItem_Click);
 
@@ -349,11 +350,8 @@ namespace Mesaje
         private void newMessageMenuItem_Click(object Sender, EventArgs e)
         {
             // Close the form, which closes the application.
-            MessageBox.Show("Show new message clicked!");
-            
-            messageDisplayTimer.Stop();
+            //MessageBox.Show("Show new message clicked!");
             MessageTimeout(null, null);
-            messageDisplayTimer.Start();
         }
 
         private void about_Click(object Sender, EventArgs e)
