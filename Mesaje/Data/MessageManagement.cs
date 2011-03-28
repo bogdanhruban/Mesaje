@@ -10,7 +10,7 @@ using Mesaje.Util;
 
 namespace Mesaje.Data
 {
-    [XmlRoot("Messages")]
+    [XmlRoot("mesaje")]
     public class MessageManagement : List<Message>
     {
         /// <summary>
