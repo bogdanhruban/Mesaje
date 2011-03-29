@@ -2,17 +2,43 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Configuration;
+using Mesaje.Util;
 
 namespace Mesaje
 {
     internal class Config
     {
-        int _timeoutDisplayNotificationWindow = 3000; // 6 seconds
+        int _timeoutDisplayNotificationWindow = 6000; // 6 seconds
         int _publishInterval = 3600000; // 1 hour
         int _messageUpdateInterval = 3600000; // 1 hour
         bool _randomWindows = false;    // use all the notification windows available or just the selected one?
         int _notificationWindowId = 1;
-        static Config _instance = new Config();
+        static Config _instance;
+
+        /// <summary>
+        /// Read the configuration options from file
+        /// </summary>
+        /// <returns>A new Config object</returns>
+        static Config ReadConfigFile()
+        {
+            Config cfg = new Config();
+
+            AppSettingsReader appSettings = new AppSettingsReader();
+            try
+            {
+                cfg._timeoutDisplayNotificationWindow = int.Parse((string)appSettings.GetValue("TimeoutDisplayNotificationWindow", typeof(string)));
+                cfg._publishInterval = int.Parse((string)appSettings.GetValue("PublishInterval", typeof(string)));
+                cfg._messageUpdateInterval = int.Parse((string)appSettings.GetValue("MessageUpdateInterval", typeof(string)));
+                cfg._randomWindows = bool.Parse((string)appSettings.GetValue("UseRandomWindows", typeof(string)));
+                cfg._notificationWindowId = int.Parse((string)appSettings.GetValue("NotificationWindowId", typeof(string)));
+            }
+            catch (Exception e)
+            {
+                Logger.Write(e, LoggerErrorLevels.ERROR);
+            }
+            return cfg;
+        }
 
         /// <summary>
         /// Get the instance of the Config object.
@@ -21,6 +47,9 @@ namespace Mesaje
         {
             get
             {
+                if (_instance == null)
+                    _instance = ReadConfigFile();
+
                 return _instance;
             }
         }
