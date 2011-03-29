@@ -8,7 +8,7 @@ namespace Mesaje
     internal class Config
     {
         int _timeoutDisplayNotificationWindow = 3000; // 6 seconds
-        int _publishInterval = 36000; // 1 hour
+        int _publishInterval = 3600000; // 1 hour
         int _messageUpdateInterval = 3600000; // 1 hour
         bool _randomWindows = false;    // use all the notification windows available or just the selected one?
         int _notificationWindowId = 1;

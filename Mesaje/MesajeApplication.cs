@@ -37,6 +37,8 @@ namespace Mesaje
         private ToolStripMenuItem ajutorToolStripMenuItem;
         private ToolStripMenuItem despreToolStripMenuItem;
         TaskbarNotifier taskbarNotifier;
+        private ToolStripStatusLabel lblStatusBarInfo;
+        private ToolStripProgressBar progressStatusBar;
 
         BackgroundWorker backWorker = new BackgroundWorker();
         #endregion
@@ -72,24 +74,31 @@ namespace Mesaje
         {
             if ((e.Cancelled == true))
             {
-                this.statusBar.Text = "Canceled!";
+                this.lblStatusBarInfo.Text = "Canceled!";
             }
 
             else if (!(e.Error == null))
             {
-                this.statusBar.Text = ("Error: " + e.Error.Message);
+                this.lblStatusBarInfo.Text = ("Error: " + e.Error.Message);
                 Logger.Write(e.Error.Message, LoggerErrorLevels.ERROR);
             }
 
             else
             {
-                this.statusBar.Text = "Done!";
+                //this.lblStatusBarInfo.Text = "Done!";
+                // TODO: move this on a Timer ... with late removal
+                lblStatusBarInfo.Visible = false;
+                progressStatusBar.Visible = false;
             }
         }
 
         private void bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            this.statusBar.Text = "Updating message list: " + (e.ProgressPercentage.ToString() + "%");
+            lblStatusBarInfo.Visible = true;
+            progressStatusBar.Visible = true;
+
+            this.lblStatusBarInfo.Text = "Updating message list";
+            this.progressStatusBar.Value = e.ProgressPercentage;
         }
         #endregion
 
@@ -268,8 +277,8 @@ namespace Mesaje
             }
             
             taskbarNotifier.CloseClickable = true;
-            taskbarNotifier.TitleClickable = true;
-            taskbarNotifier.ContentClickable = true;
+            taskbarNotifier.TitleClickable = false;
+            taskbarNotifier.ContentClickable = false;
             taskbarNotifier.EnableSelectionRectangle = true;
             taskbarNotifier.KeepVisibleOnMousOver = true;	// Added Rev 002
             taskbarNotifier.ReShowOnMouseOver = true;			// Added Rev 002
@@ -291,15 +300,15 @@ namespace Mesaje
         #region TaskbarNotifierEvents
         private void TitleClick(object sender, EventArgs e)
         {
-            MessageBox.Show("Title clicked!");
+            //MessageBox.Show("Title clicked!");
         }
         private void ContentClick(object sender, EventArgs e)
         {
-            MessageBox.Show("Content clicked!");
+            //MessageBox.Show("Content clicked!");
         }
         private void CloseClick(object sender, EventArgs e)
         {
-            MessageBox.Show("Close clicked!");
+            //MessageBox.Show("Close clicked!");
             taskbarNotifier.Close();
             taskbarNotifier = null;
         }
@@ -372,21 +381,32 @@ namespace Mesaje
         private void InitializeComponent()
         {
             this.statusBar = new System.Windows.Forms.StatusStrip();
+            this.lblStatusBarInfo = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitMenuButtom = new System.Windows.Forms.ToolStripMenuItem();
             this.ajutorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.despreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitMenuButtom = new System.Windows.Forms.ToolStripMenuItem();
+            this.progressStatusBar = new System.Windows.Forms.ToolStripProgressBar();
+            this.statusBar.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // statusStrip1
+            // statusBar
             // 
+            this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblStatusBarInfo,
+            this.progressStatusBar});
             this.statusBar.Location = new System.Drawing.Point(0, 348);
-            this.statusBar.Name = "statusStrip1";
+            this.statusBar.Name = "statusBar";
             this.statusBar.Size = new System.Drawing.Size(479, 22);
             this.statusBar.TabIndex = 0;
             this.statusBar.Text = "statusStrip1";
+            // 
+            // lblStatusBarInfo
+            // 
+            this.lblStatusBarInfo.Name = "lblStatusBarInfo";
+            this.lblStatusBarInfo.Size = new System.Drawing.Size(0, 17);
             // 
             // menuStrip1
             // 
@@ -407,6 +427,13 @@ namespace Mesaje
             this.testToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.testToolStripMenuItem.Text = "Fisier";
             // 
+            // exitMenuButtom
+            // 
+            this.exitMenuButtom.Name = "exitMenuButtom";
+            this.exitMenuButtom.Size = new System.Drawing.Size(152, 22);
+            this.exitMenuButtom.Text = "Iesire";
+            this.exitMenuButtom.Click += new System.EventHandler(this.exitMenuItem_Click);
+            // 
             // ajutorToolStripMenuItem
             // 
             this.ajutorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -418,16 +445,14 @@ namespace Mesaje
             // despreToolStripMenuItem
             // 
             this.despreToolStripMenuItem.Name = "despreToolStripMenuItem";
-            this.despreToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.despreToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.despreToolStripMenuItem.Text = "Despre";
-            this.despreToolStripMenuItem.Click += new EventHandler(about_Click);
+            this.despreToolStripMenuItem.Click += new System.EventHandler(this.about_Click);
             // 
-            // exitMenuButtom
+            // progressStatusBar
             // 
-            this.exitMenuButtom.Name = "exitMenuButtom";
-            this.exitMenuButtom.Size = new System.Drawing.Size(152, 22);
-            this.exitMenuButtom.Text = "Iesire";
-            this.exitMenuButtom.Click += new EventHandler(exitMenuItem_Click);
+            this.progressStatusBar.Name = "progressStatusBar";
+            this.progressStatusBar.Size = new System.Drawing.Size(100, 16);
             // 
             // MesajeApplication
             // 
@@ -436,6 +461,8 @@ namespace Mesaje
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MesajeApplication";
+            this.statusBar.ResumeLayout(false);
+            this.statusBar.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
