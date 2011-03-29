@@ -6,12 +6,12 @@ using System.Runtime.CompilerServices;
 // l'ensemble d'attributs suivant. Pour modifier les informations
 // associées à un assembly, changez les valeurs de ces attributs.
 //
-[assembly: AssemblyTitle("")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Mesaje")]
+[assembly: AssemblyDescription("Mesaje motivationale")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("")]
-[assembly: AssemblyCopyright("")]
+[assembly: AssemblyCompany("Bogdan Hruban")]
+[assembly: AssemblyProduct("Mesaje")]
+[assembly: AssemblyCopyright("2011 Bogdan Hruban")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]		
 
