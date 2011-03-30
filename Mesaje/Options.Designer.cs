@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Mesaje");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Invatisare");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("General");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Mesaje");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Invatisare");
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
@@ -79,13 +80,16 @@
                         | System.Windows.Forms.AnchorStyles.Left)));
             this.treeView1.Location = new System.Drawing.Point(12, 12);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "message";
-            treeNode1.Text = "Mesaje";
-            treeNode2.Name = "skin";
-            treeNode2.Text = "Invatisare";
+            treeNode1.Name = "general";
+            treeNode1.Text = "General";
+            treeNode2.Name = "message";
+            treeNode2.Text = "Mesaje";
+            treeNode3.Name = "skin";
+            treeNode3.Text = "Invatisare";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode1,
-            treeNode2});
+            treeNode2,
+            treeNode3});
             this.treeView1.Size = new System.Drawing.Size(180, 265);
             this.treeView1.TabIndex = 4;
             // 
