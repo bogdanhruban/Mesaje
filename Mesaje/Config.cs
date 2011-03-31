@@ -8,6 +8,7 @@ namespace Mesaje
 {
     internal class Config
     {
+        #region Variables
         static Config _instance;
 
         int _timeoutDisplayNotificationWindow = 6000; // 6 seconds
@@ -32,6 +33,7 @@ namespace Mesaje
         // skin chooser
         bool _randomWindows = true;    // use all the notification windows available or just the selected one?
         int _notificationWindowId = 1;
+        #endregion
 
         #region Read / Write config
         /// <summary>
@@ -59,35 +61,161 @@ namespace Mesaje
         }
         #endregion
 
+        #region Application Update
         /// <summary>
-        /// Get the instance of the Config object.
+        /// Get / Set the application update at startup
         /// </summary>
-        internal static Config Instance
+        internal bool AppUpdateAtStartup
         {
             get
             {
-                if (_instance == null)
-                    _instance = ReadConfigFile();
-
-                return _instance;
-            }
-        }
-
-        /// <summary>
-        /// Is the application starting with Windows?
-        /// </summary>
-        internal bool StartWithWindows
-        {
-            get
-            {
-                return _startWithWindows;
+                return _appUpdateAtStartup;
             }
             set
             {
-                _startWithWindows = value;
+                _appUpdateAtStartup = value;
             }
         }
 
+        /// <summary>
+        /// Get / Set the application update - never update
+        /// </summary>
+        internal bool AppUpdateNeverUpdate
+        {
+            get
+            {
+                return _appUpdateNever;
+            }
+            set
+            {
+                _appUpdateNever = value;
+            }
+        }
+
+        /// <summary>
+        /// Get / Set the application update interval
+        /// </summary>
+        internal int AppUpdateInterval
+        {
+            get
+            {
+                return _appUpdateInterval;
+            }
+            set
+            {
+                _appUpdateInterval = value;
+            }
+        }
+        #endregion
+
+        #region Message Update
+        /// <summary>
+        /// Get / Set the message update at startup
+        /// </summary>
+        internal bool MessageUpdateAtStartup
+        {
+            get
+            {
+                return _messageUpdateAtStartup;
+            }
+            set
+            {
+                _messageUpdateAtStartup = value;
+            }
+        }
+
+        /// <summary>
+        /// Get / Set the message update - never update
+        /// </summary>
+        internal bool MessageUpdateNeverUpdate
+        {
+            get
+            {
+                return _messageUpdateNever;
+            }
+            set
+            {
+                _messageUpdateNever = value;
+            }
+        }
+
+        /// <summary>
+        /// Get / Set the message update interval
+        /// </summary>
+        internal int MessageUpdateInterval
+        {
+            get
+            {
+                return _messageUpdateInterval;
+            }
+            set
+            {
+                _messageUpdateInterval = value;
+            }
+        }
+        #endregion
+
+        #region Message Categories
+        /// <summary>
+        /// Get access to the message categories
+        /// </summary>
+        internal List<string> MessageCategories
+        {
+            get
+            {
+                return _messageCategories;
+            }
+        }
+
+        /// <summary>
+        /// Use all the message categories
+        /// </summary>
+        internal bool UseAllCategories
+        {
+            get
+            {
+                return _allMessageCategories;
+            }
+            set
+            {
+                _allMessageCategories = value;
+            }
+        }
+        #endregion
+
+        #region Skin chooser
+        /// <summary>
+        /// Use random skins for the notification window
+        /// </summary>
+        internal bool UseRandomSkins
+        {
+            get
+            {
+                return _randomWindows;
+            }
+            set
+            {
+                _randomWindows = value;
+            }
+        }
+
+        /// <summary>
+        /// Get the used skin id
+        /// </summary>
+        internal int SkinId
+        {
+            get
+            {
+                return _notificationWindowId;
+            }
+            set
+            {
+                _notificationWindowId = value;
+            }
+        }
+        #endregion
+
+        #region Notification Window
         /// <summary>
         /// Get / Set the timeout for the NotificationWindow
         /// </summary>
@@ -117,49 +245,34 @@ namespace Mesaje
                 _publishInterval = value;
             }
         }
+        #endregion
 
         /// <summary>
-        /// Get / Set the interval when updates for the message list are checked
+        /// Get the instance of the Config object.
         /// </summary>
-        internal int MessageUpdateInterval
+        internal static Config Instance
         {
             get
             {
-                return _messageUpdateInterval;
-            }
-            set
-            {
-                _messageUpdateInterval = value;
+                if (_instance == null)
+                    _instance = ReadConfigFile();
+
+                return _instance;
             }
         }
 
         /// <summary>
-        /// Get / Set the notification window to be used
+        /// Is the application starting with Windows?
         /// </summary>
-        internal int NotificationWindowId
+        internal bool StartWithWindows
         {
             get
             {
-                return _notificationWindowId;
+                return _startWithWindows;
             }
             set
             {
-                _notificationWindowId = value;
-            }
-        }
-
-        /// <summary>
-        /// Get / Set if all the notification windows should be used
-        /// </summary>
-        internal bool UseRandomWindows
-        {
-            get
-            {
-                return _randomWindows;
-            }
-            set
-            {
-                _randomWindows = value;
+                _startWithWindows = value;
             }
         }
     }
