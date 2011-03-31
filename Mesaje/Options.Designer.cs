@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode41 = new System.Windows.Forms.TreeNode("General");
-            System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("General");
-            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("Update");
-            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("Mesaje", new System.Windows.Forms.TreeNode[] {
-            treeNode42,
-            treeNode43});
-            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("Invatisare");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("General");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("General");
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Update");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Mesaje", new System.Windows.Forms.TreeNode[] {
+            treeNode12,
+            treeNode13});
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Invatisare");
             this.panelGeneral = new System.Windows.Forms.Panel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
@@ -71,13 +71,15 @@
             this.checkBoxAllCategories = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panelSkinGeneral = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.checkBoxSkin1 = new System.Windows.Forms.CheckBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.checkBoxSkinAll = new System.Windows.Forms.CheckBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.panelGeneral.SuspendLayout();
@@ -95,11 +97,11 @@
             this.panelMessagesGeneral.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panelSkinGeneral.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panel5.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -149,20 +151,20 @@
                         | System.Windows.Forms.AnchorStyles.Left)));
             this.treeView1.Location = new System.Drawing.Point(12, 12);
             this.treeView1.Name = "treeView1";
-            treeNode41.Name = "general";
-            treeNode41.Text = "General";
-            treeNode42.Name = "msgGeneral";
-            treeNode42.Text = "General";
-            treeNode43.Name = "msgUpdate";
-            treeNode43.Text = "Update";
-            treeNode44.Name = "message";
-            treeNode44.Text = "Mesaje";
-            treeNode45.Name = "skin";
-            treeNode45.Text = "Invatisare";
+            treeNode11.Name = "general";
+            treeNode11.Text = "General";
+            treeNode12.Name = "msgGeneral";
+            treeNode12.Text = "General";
+            treeNode13.Name = "msgUpdate";
+            treeNode13.Text = "Update";
+            treeNode14.Name = "message";
+            treeNode14.Text = "Mesaje";
+            treeNode15.Name = "skin";
+            treeNode15.Text = "Invatisare";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode41,
-            treeNode44,
-            treeNode45});
+            treeNode11,
+            treeNode14,
+            treeNode15});
             this.treeView1.Size = new System.Drawing.Size(180, 265);
             this.treeView1.TabIndex = 4;
             // 
@@ -450,28 +452,21 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.panelSkinGeneral.AutoScroll = true;
             this.panelSkinGeneral.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelSkinGeneral.Controls.Add(this.panel5);
-            this.panelSkinGeneral.Controls.Add(this.panel4);
-            this.panelSkinGeneral.Controls.Add(this.panel2);
+            this.panelSkinGeneral.Controls.Add(this.groupBox5);
+            this.panelSkinGeneral.Controls.Add(this.groupBox4);
+            this.panelSkinGeneral.Controls.Add(this.groupBox3);
+            this.panelSkinGeneral.Controls.Add(this.checkBoxSkinAll);
+            this.panelSkinGeneral.Controls.Add(this.label10);
             this.panelSkinGeneral.Location = new System.Drawing.Point(-1, -1);
             this.panelSkinGeneral.Name = "panelSkinGeneral";
             this.panelSkinGeneral.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.panelSkinGeneral.Size = new System.Drawing.Size(355, 265);
             this.panelSkinGeneral.TabIndex = 5;
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Controls.Add(this.checkBoxSkin1);
-            this.panel2.Location = new System.Drawing.Point(9, 7);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(192, 106);
-            this.panel2.TabIndex = 0;
-            // 
             // checkBoxSkin1
             // 
             this.checkBoxSkin1.AutoSize = true;
-            this.checkBoxSkin1.Location = new System.Drawing.Point(7, 39);
+            this.checkBoxSkin1.Location = new System.Drawing.Point(7, 47);
             this.checkBoxSkin1.Name = "checkBoxSkin1";
             this.checkBoxSkin1.Size = new System.Drawing.Size(15, 14);
             this.checkBoxSkin1.TabIndex = 0;
@@ -480,30 +475,62 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Mesaje.Resource.skin;
-            this.pictureBox1.InitialImage = global::Mesaje.Resource.skin;
-            this.pictureBox1.Location = new System.Drawing.Point(27, 3);
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(35, 15);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(147, 119);
+            this.pictureBox1.Size = new System.Drawing.Size(129, 92);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // panel4
+            // label10
             // 
-            this.panel4.Controls.Add(this.pictureBox2);
-            this.panel4.Controls.Add(this.checkBox1);
-            this.panel4.Location = new System.Drawing.Point(8, 119);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(192, 106);
-            this.panel4.TabIndex = 1;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(7, 4);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(162, 13);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "Alegeti tipul ferestrei de notificare";
+            // 
+            // checkBoxSkinAll
+            // 
+            this.checkBoxSkinAll.AutoSize = true;
+            this.checkBoxSkinAll.Location = new System.Drawing.Point(14, 24);
+            this.checkBoxSkinAll.Name = "checkBoxSkinAll";
+            this.checkBoxSkinAll.Size = new System.Drawing.Size(100, 17);
+            this.checkBoxSkinAll.TabIndex = 4;
+            this.checkBoxSkinAll.Text = "Toate ferestrele";
+            this.checkBoxSkinAll.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.pictureBox1);
+            this.groupBox3.Controls.Add(this.checkBoxSkin1);
+            this.groupBox3.Location = new System.Drawing.Point(141, 24);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(170, 112);
+            this.groupBox3.TabIndex = 5;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Skin 1";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.pictureBox2);
+            this.groupBox4.Controls.Add(this.checkBox1);
+            this.groupBox4.Location = new System.Drawing.Point(141, 141);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(170, 112);
+            this.groupBox4.TabIndex = 6;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Skin 2";
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Mesaje.Resource.skin2;
-            this.pictureBox2.InitialImage = global::Mesaje.Resource.skin2;
-            this.pictureBox2.Location = new System.Drawing.Point(27, 3);
+            this.pictureBox2.InitialImage = null;
+            this.pictureBox2.Location = new System.Drawing.Point(35, 15);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(160, 98);
+            this.pictureBox2.Size = new System.Drawing.Size(129, 92);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
@@ -511,28 +538,30 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(7, 39);
+            this.checkBox1.Location = new System.Drawing.Point(7, 47);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(15, 14);
             this.checkBox1.TabIndex = 0;
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // panel5
+            // groupBox5
             // 
-            this.panel5.Controls.Add(this.pictureBox3);
-            this.panel5.Controls.Add(this.checkBox2);
-            this.panel5.Location = new System.Drawing.Point(9, 231);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(192, 106);
-            this.panel5.TabIndex = 2;
+            this.groupBox5.Controls.Add(this.pictureBox3);
+            this.groupBox5.Controls.Add(this.checkBox2);
+            this.groupBox5.Location = new System.Drawing.Point(141, 259);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(170, 112);
+            this.groupBox5.TabIndex = 7;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Skin 3";
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::Mesaje.Resource.skin3;
-            this.pictureBox3.InitialImage = global::Mesaje.Resource.skin3;
-            this.pictureBox3.Location = new System.Drawing.Point(27, 3);
+            this.pictureBox3.InitialImage = null;
+            this.pictureBox3.Location = new System.Drawing.Point(35, 15);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(160, 98);
+            this.pictureBox3.Size = new System.Drawing.Size(129, 92);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 1;
             this.pictureBox3.TabStop = false;
@@ -540,7 +569,7 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(7, 39);
+            this.checkBox2.Location = new System.Drawing.Point(7, 47);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(15, 14);
             this.checkBox2.TabIndex = 0;
@@ -585,14 +614,15 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.panelSkinGeneral.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.panelSkinGeneral.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
@@ -635,14 +665,16 @@
         private System.Windows.Forms.CheckBox checkBoxAllCategories;
         private System.Windows.Forms.CheckedListBox checkedListCategorii;
         private System.Windows.Forms.Panel panelSkinGeneral;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.CheckBox checkBoxSkin1;
+        private System.Windows.Forms.CheckBox checkBoxSkinAll;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }
