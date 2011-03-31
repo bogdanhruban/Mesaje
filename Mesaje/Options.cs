@@ -38,6 +38,9 @@ namespace Mesaje
             panelSkinGeneral.Top = panelGeneral.Top;
             panelSkinGeneral.Left = panelGeneral.Left;
 
+            panelMessagesGeneral.Top = panelGeneral.Top;
+            panelMessagesGeneral.Left = panelGeneral.Left;
+            
             treeView1.SelectedNode = treeView1.Nodes[0];
         }
 
@@ -193,6 +196,28 @@ namespace Mesaje
 
             // save the General items
             cfg.StartWithWindows = chkBoxStartWithWindows.Checked;
+        }
+
+        private void radioButtonSkin_Clicked(object sender, EventArgs e)
+        {
+            if (sender.Equals(radioButtonSkin1))
+            {
+                radioButtonSkin1.Checked = true;
+                radioButtonSkin2.Checked = false;
+                radioButtonSkin3.Checked = false;
+            }
+            else if (sender.Equals(radioButtonSkin2))
+            {
+                radioButtonSkin1.Checked = false;
+                radioButtonSkin2.Checked = true;
+                radioButtonSkin3.Checked = false;
+            }
+            else if (sender.Equals(radioButtonSkin3))
+            {
+                radioButtonSkin1.Checked = false;
+                radioButtonSkin2.Checked = false;
+                radioButtonSkin3.Checked = true;
+            }
         }
     }
 }

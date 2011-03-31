@@ -89,9 +89,14 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
+            this.numMsgNotifyDays = new System.Windows.Forms.NumericUpDown();
+            this.numMsgNotifyHours = new System.Windows.Forms.NumericUpDown();
             this.label14 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.numWindNotifySec = new System.Windows.Forms.NumericUpDown();
+            this.label16 = new System.Windows.Forms.Label();
             this.panelGeneral.SuspendLayout();
             this.panelMessagesUpdate.SuspendLayout();
             this.panelMessagesCategories.SuspendLayout();
@@ -116,8 +121,11 @@
             this.panelMessagesGeneral.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMsgNotifyDays)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMsgNotifyHours)).BeginInit();
+            this.groupBox4.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numWindNotifySec)).BeginInit();
             this.SuspendLayout();
             // 
             // panelGeneral
@@ -144,7 +152,7 @@
             this.panelMessagesCategories.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelMessagesCategories.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelMessagesCategories.Controls.Add(this.groupBox2);
-            this.panelMessagesCategories.Location = new System.Drawing.Point(275, 295);
+            this.panelMessagesCategories.Location = new System.Drawing.Point(-109, 118);
             this.panelMessagesCategories.Name = "panelMessagesCategories";
             this.panelMessagesCategories.Size = new System.Drawing.Size(355, 265);
             this.panelMessagesCategories.TabIndex = 4;
@@ -160,7 +168,7 @@
             this.panelSkinGeneral.Controls.Add(this.groupBoxSkin1);
             this.panelSkinGeneral.Controls.Add(this.checkBoxSkinAll);
             this.panelSkinGeneral.Controls.Add(this.label10);
-            this.panelSkinGeneral.Location = new System.Drawing.Point(646, 289);
+            this.panelSkinGeneral.Location = new System.Drawing.Point(262, 112);
             this.panelSkinGeneral.Name = "panelSkinGeneral";
             this.panelSkinGeneral.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.panelSkinGeneral.Size = new System.Drawing.Size(355, 265);
@@ -526,7 +534,7 @@
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(1227, 643);
+            this.btnCancel.Location = new System.Drawing.Point(460, 290);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(91, 25);
             this.btnCancel.TabIndex = 2;
@@ -537,7 +545,7 @@
             // btnOk
             // 
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOk.Location = new System.Drawing.Point(1130, 643);
+            this.btnOk.Location = new System.Drawing.Point(363, 290);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(91, 25);
             this.btnOk.TabIndex = 3;
@@ -572,7 +580,7 @@
             treeNode7,
             treeNode11,
             treeNode12});
-            this.treeView1.Size = new System.Drawing.Size(180, 618);
+            this.treeView1.Size = new System.Drawing.Size(180, 265);
             this.treeView1.TabIndex = 4;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
@@ -606,6 +614,7 @@
             this.radioButtonSkin1.TabIndex = 2;
             this.radioButtonSkin1.TabStop = true;
             this.radioButtonSkin1.UseVisualStyleBackColor = true;
+            this.radioButtonSkin1.Click += new System.EventHandler(this.radioButtonSkin_Clicked);
             // 
             // radioButtonSkin2
             // 
@@ -616,6 +625,7 @@
             this.radioButtonSkin2.TabIndex = 3;
             this.radioButtonSkin2.TabStop = true;
             this.radioButtonSkin2.UseVisualStyleBackColor = true;
+            this.radioButtonSkin2.Click += new System.EventHandler(this.radioButtonSkin_Clicked);
             // 
             // radioButtonSkin3
             // 
@@ -626,13 +636,15 @@
             this.radioButtonSkin3.TabIndex = 3;
             this.radioButtonSkin3.TabStop = true;
             this.radioButtonSkin3.UseVisualStyleBackColor = true;
+            this.radioButtonSkin3.Click += new System.EventHandler(this.radioButtonSkin_Clicked);
             // 
             // panelMessagesGeneral
             // 
             this.panelMessagesGeneral.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelMessagesGeneral.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelMessagesGeneral.Controls.Add(this.groupBox4);
             this.panelMessagesGeneral.Controls.Add(this.groupBox3);
-            this.panelMessagesGeneral.Location = new System.Drawing.Point(920, 12);
+            this.panelMessagesGeneral.Location = new System.Drawing.Point(536, -165);
             this.panelMessagesGeneral.Name = "panelMessagesGeneral";
             this.panelMessagesGeneral.Size = new System.Drawing.Size(355, 265);
             this.panelMessagesGeneral.TabIndex = 5;
@@ -644,7 +656,7 @@
             this.groupBox3.Controls.Add(this.label14);
             this.groupBox3.Location = new System.Drawing.Point(3, 16);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(328, 131);
+            this.groupBox3.Size = new System.Drawing.Size(328, 96);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Mesaj notificare";
@@ -653,8 +665,8 @@
             // 
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.label12);
-            this.panel1.Controls.Add(this.numericUpDown4);
-            this.panel1.Controls.Add(this.numericUpDown5);
+            this.panel1.Controls.Add(this.numMsgNotifyDays);
+            this.panel1.Controls.Add(this.numMsgNotifyHours);
             this.panel1.Location = new System.Drawing.Point(10, 36);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(109, 54);
@@ -678,29 +690,29 @@
             this.label12.TabIndex = 7;
             this.label12.Text = "Ore";
             // 
-            // numericUpDown4
+            // numMsgNotifyDays
             // 
-            this.numericUpDown4.Location = new System.Drawing.Point(61, 29);
-            this.numericUpDown4.Maximum = new decimal(new int[] {
+            this.numMsgNotifyDays.Location = new System.Drawing.Point(61, 29);
+            this.numMsgNotifyDays.Maximum = new decimal(new int[] {
             59,
             0,
             0,
             0});
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(36, 20);
-            this.numericUpDown4.TabIndex = 6;
+            this.numMsgNotifyDays.Name = "numMsgNotifyDays";
+            this.numMsgNotifyDays.Size = new System.Drawing.Size(36, 20);
+            this.numMsgNotifyDays.TabIndex = 6;
             // 
-            // numericUpDown5
+            // numMsgNotifyHours
             // 
-            this.numericUpDown5.Location = new System.Drawing.Point(8, 29);
-            this.numericUpDown5.Maximum = new decimal(new int[] {
+            this.numMsgNotifyHours.Location = new System.Drawing.Point(8, 29);
+            this.numMsgNotifyHours.Maximum = new decimal(new int[] {
             23,
             0,
             0,
             0});
-            this.numericUpDown5.Name = "numericUpDown5";
-            this.numericUpDown5.Size = new System.Drawing.Size(36, 20);
-            this.numericUpDown5.TabIndex = 6;
+            this.numMsgNotifyHours.Name = "numMsgNotifyHours";
+            this.numMsgNotifyHours.Size = new System.Drawing.Size(36, 20);
+            this.numMsgNotifyHours.TabIndex = 6;
             // 
             // label14
             // 
@@ -711,13 +723,63 @@
             this.label14.TabIndex = 2;
             this.label14.Text = "Cat de des doriti sa primiti mesajele de notificare?";
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.panel2);
+            this.groupBox4.Controls.Add(this.label16);
+            this.groupBox4.Location = new System.Drawing.Point(3, 133);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(328, 96);
+            this.groupBox4.TabIndex = 4;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Fereastra notificare";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label13);
+            this.panel2.Controls.Add(this.numWindNotifySec);
+            this.panel2.Location = new System.Drawing.Point(10, 36);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(57, 54);
+            this.panel2.TabIndex = 3;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(5, 13);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(50, 13);
+            this.label13.TabIndex = 7;
+            this.label13.Text = "Secunde";
+            // 
+            // numWindNotifySec
+            // 
+            this.numWindNotifySec.Location = new System.Drawing.Point(8, 31);
+            this.numWindNotifySec.Maximum = new decimal(new int[] {
+            59,
+            0,
+            0,
+            0});
+            this.numWindNotifySec.Name = "numWindNotifySec";
+            this.numWindNotifySec.Size = new System.Drawing.Size(36, 20);
+            this.numWindNotifySec.TabIndex = 6;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(7, 20);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(242, 13);
+            this.label16.TabIndex = 2;
+            this.label16.Text = "Cat de mult doriti sa vedeti fereastra de notificare?";
+            // 
             // Options
             // 
             this.AcceptButton = this.btnOk;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(1330, 676);
+            this.ClientSize = new System.Drawing.Size(563, 323);
             this.Controls.Add(this.panelMessagesGeneral);
             this.Controls.Add(this.panelMessagesUpdate);
             this.Controls.Add(this.panelSkinGeneral);
@@ -768,8 +830,13 @@
             this.groupBox3.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMsgNotifyDays)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMsgNotifyHours)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numWindNotifySec)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -827,8 +894,13 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
-        private System.Windows.Forms.NumericUpDown numericUpDown5;
+        private System.Windows.Forms.NumericUpDown numMsgNotifyDays;
+        private System.Windows.Forms.NumericUpDown numMsgNotifyHours;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.NumericUpDown numWindNotifySec;
+        private System.Windows.Forms.Label label16;
     }
 }
