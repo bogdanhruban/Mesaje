@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("General");
-            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("General");
-            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("Update");
-            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("Mesaje", new System.Windows.Forms.TreeNode[] {
-            treeNode27,
-            treeNode28});
-            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("Invatisare");
+            System.Windows.Forms.TreeNode treeNode41 = new System.Windows.Forms.TreeNode("General");
+            System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("General");
+            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("Update");
+            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("Mesaje", new System.Windows.Forms.TreeNode[] {
+            treeNode42,
+            treeNode43});
+            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("Invatisare");
             this.panelGeneral = new System.Windows.Forms.Panel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
@@ -149,20 +149,20 @@
                         | System.Windows.Forms.AnchorStyles.Left)));
             this.treeView1.Location = new System.Drawing.Point(12, 12);
             this.treeView1.Name = "treeView1";
-            treeNode26.Name = "general";
-            treeNode26.Text = "General";
-            treeNode27.Name = "msgGeneral";
-            treeNode27.Text = "General";
-            treeNode28.Name = "msgUpdate";
-            treeNode28.Text = "Update";
-            treeNode29.Name = "message";
-            treeNode29.Text = "Mesaje";
-            treeNode30.Name = "skin";
-            treeNode30.Text = "Invatisare";
+            treeNode41.Name = "general";
+            treeNode41.Text = "General";
+            treeNode42.Name = "msgGeneral";
+            treeNode42.Text = "General";
+            treeNode43.Name = "msgUpdate";
+            treeNode43.Text = "Update";
+            treeNode44.Name = "message";
+            treeNode44.Text = "Mesaje";
+            treeNode45.Name = "skin";
+            treeNode45.Text = "Invatisare";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode26,
-            treeNode29,
-            treeNode30});
+            treeNode41,
+            treeNode44,
+            treeNode45});
             this.treeView1.Size = new System.Drawing.Size(180, 265);
             this.treeView1.TabIndex = 4;
             // 
@@ -450,6 +450,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.panelSkinGeneral.AutoScroll = true;
             this.panelSkinGeneral.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelSkinGeneral.Controls.Add(this.panel5);
             this.panelSkinGeneral.Controls.Add(this.panel4);
             this.panelSkinGeneral.Controls.Add(this.panel2);
             this.panelSkinGeneral.Location = new System.Drawing.Point(-1, -1);
@@ -462,7 +463,7 @@
             // 
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.checkBoxSkin1);
-            this.panel2.Location = new System.Drawing.Point(14, 30);
+            this.panel2.Location = new System.Drawing.Point(9, 7);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(192, 106);
             this.panel2.TabIndex = 0;
@@ -478,27 +479,32 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::Mesaje.Resource.skin;
+            this.pictureBox1.InitialImage = global::Mesaje.Resource.skin;
             this.pictureBox1.Location = new System.Drawing.Point(27, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(160, 98);
+            this.pictureBox1.Size = new System.Drawing.Size(147, 119);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.panel5);
             this.panel4.Controls.Add(this.pictureBox2);
             this.panel4.Controls.Add(this.checkBox1);
-            this.panel4.Location = new System.Drawing.Point(18, 153);
+            this.panel4.Location = new System.Drawing.Point(8, 119);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(192, 106);
             this.panel4.TabIndex = 1;
             // 
             // pictureBox2
             // 
+            this.pictureBox2.Image = global::Mesaje.Resource.skin2;
+            this.pictureBox2.InitialImage = global::Mesaje.Resource.skin2;
             this.pictureBox2.Location = new System.Drawing.Point(27, 3);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(160, 98);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
@@ -515,16 +521,19 @@
             // 
             this.panel5.Controls.Add(this.pictureBox3);
             this.panel5.Controls.Add(this.checkBox2);
-            this.panel5.Location = new System.Drawing.Point(47, 52);
+            this.panel5.Location = new System.Drawing.Point(9, 231);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(192, 106);
             this.panel5.TabIndex = 2;
             // 
             // pictureBox3
             // 
+            this.pictureBox3.Image = global::Mesaje.Resource.skin3;
+            this.pictureBox3.InitialImage = global::Mesaje.Resource.skin3;
             this.pictureBox3.Location = new System.Drawing.Point(27, 3);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(160, 98);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 1;
             this.pictureBox3.TabStop = false;
             // 
