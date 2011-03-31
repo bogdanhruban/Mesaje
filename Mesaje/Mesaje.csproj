@@ -101,7 +101,7 @@
     <Compile Include="Config.cs" />
     <Compile Include="Data\Message.cs" />
     <Compile Include="Data\MessageManagement.cs" />
-    <Compile Include="Logger.cs" />
+    <Compile Include="Util\Logger.cs" />
     <Compile Include="MesajeApplication.cs">
       <SubType>Form</SubType>
     </Compile>

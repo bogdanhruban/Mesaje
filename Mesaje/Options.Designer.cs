@@ -71,9 +71,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.checkBoxNever = new System.Windows.Forms.CheckBox();
             this.checkBoxWhenAppStarts = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -82,6 +80,8 @@
             this.btnOk = new System.Windows.Forms.Button();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.treeView1 = new System.Windows.Forms.TreeView();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
             this.panelGeneral.SuspendLayout();
             this.panelMessagesUpdate.SuspendLayout();
             this.panelMessagesGeneral.SuspendLayout();
@@ -129,7 +129,7 @@
             this.panelMessagesGeneral.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelMessagesGeneral.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelMessagesGeneral.Controls.Add(this.groupBox2);
-            this.panelMessagesGeneral.Location = new System.Drawing.Point(-109, 118);
+            this.panelMessagesGeneral.Location = new System.Drawing.Point(196, 295);
             this.panelMessagesGeneral.Name = "panelMessagesGeneral";
             this.panelMessagesGeneral.Size = new System.Drawing.Size(355, 265);
             this.panelMessagesGeneral.TabIndex = 4;
@@ -145,7 +145,7 @@
             this.panelSkinGeneral.Controls.Add(this.groupBoxSkin1);
             this.panelSkinGeneral.Controls.Add(this.checkBoxSkinAll);
             this.panelSkinGeneral.Controls.Add(this.label10);
-            this.panelSkinGeneral.Location = new System.Drawing.Point(262, 112);
+            this.panelSkinGeneral.Location = new System.Drawing.Point(567, 289);
             this.panelSkinGeneral.Name = "panelSkinGeneral";
             this.panelSkinGeneral.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.panelSkinGeneral.Size = new System.Drawing.Size(355, 265);
@@ -351,6 +351,11 @@
             // numUpMsgMin
             // 
             this.numUpMsgMin.Location = new System.Drawing.Point(110, 28);
+            this.numUpMsgMin.Maximum = new decimal(new int[] {
+            59,
+            0,
+            0,
+            0});
             this.numUpMsgMin.Name = "numUpMsgMin";
             this.numUpMsgMin.Size = new System.Drawing.Size(36, 20);
             this.numUpMsgMin.TabIndex = 6;
@@ -367,6 +372,11 @@
             // numUpMsgHours
             // 
             this.numUpMsgHours.Location = new System.Drawing.Point(60, 28);
+            this.numUpMsgHours.Maximum = new decimal(new int[] {
+            23,
+            0,
+            0,
+            0});
             this.numUpMsgHours.Name = "numUpMsgHours";
             this.numUpMsgHours.Size = new System.Drawing.Size(36, 20);
             this.numUpMsgHours.TabIndex = 6;
@@ -374,6 +384,11 @@
             // numUpMsgDays
             // 
             this.numUpMsgDays.Location = new System.Drawing.Point(11, 28);
+            this.numUpMsgDays.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             this.numUpMsgDays.Name = "numUpMsgDays";
             this.numUpMsgDays.Size = new System.Drawing.Size(36, 20);
             this.numUpMsgDays.TabIndex = 1;
@@ -456,32 +471,26 @@
             // numericUpDown3
             // 
             this.numericUpDown3.Location = new System.Drawing.Point(108, 29);
+            this.numericUpDown3.Maximum = new decimal(new int[] {
+            59,
+            0,
+            0,
+            0});
             this.numericUpDown3.Name = "numericUpDown3";
             this.numericUpDown3.Size = new System.Drawing.Size(36, 20);
             this.numericUpDown3.TabIndex = 6;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 11);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(24, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Zile";
-            // 
             // numericUpDown2
             // 
             this.numericUpDown2.Location = new System.Drawing.Point(55, 29);
+            this.numericUpDown2.Maximum = new decimal(new int[] {
+            23,
+            0,
+            0,
+            0});
             this.numericUpDown2.Name = "numericUpDown2";
             this.numericUpDown2.Size = new System.Drawing.Size(36, 20);
             this.numericUpDown2.TabIndex = 6;
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(5, 29);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(36, 20);
-            this.numericUpDown1.TabIndex = 1;
             // 
             // checkBoxNever
             // 
@@ -529,7 +538,7 @@
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(460, 290);
+            this.btnCancel.Location = new System.Drawing.Point(1069, 643);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(91, 25);
             this.btnCancel.TabIndex = 2;
@@ -540,12 +549,13 @@
             // btnOk
             // 
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOk.Location = new System.Drawing.Point(363, 290);
+            this.btnOk.Location = new System.Drawing.Point(972, 643);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(91, 25);
             this.btnOk.TabIndex = 3;
             this.btnOk.Text = "Aplica";
             this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // notifyIcon1
             // 
@@ -572,9 +582,30 @@
             treeNode6,
             treeNode9,
             treeNode10});
-            this.treeView1.Size = new System.Drawing.Size(180, 265);
+            this.treeView1.Size = new System.Drawing.Size(180, 618);
             this.treeView1.TabIndex = 4;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(5, 29);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(36, 20);
+            this.numericUpDown1.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 11);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(24, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Zile";
             // 
             // Options
             // 
@@ -582,7 +613,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(563, 323);
+            this.ClientSize = new System.Drawing.Size(1172, 676);
             this.Controls.Add(this.panelMessagesUpdate);
             this.Controls.Add(this.panelSkinGeneral);
             this.Controls.Add(this.treeView1);
@@ -643,9 +674,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown numericUpDown3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.CheckBox checkBoxNever;
         private System.Windows.Forms.CheckBox checkBoxWhenAppStarts;
         private System.Windows.Forms.Label label1;
@@ -679,5 +708,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.GroupBox groupBoxSkin1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }

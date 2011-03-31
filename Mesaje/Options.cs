@@ -174,5 +174,14 @@ namespace Mesaje
                 groupBoxSkin3.Enabled = true;
             }
         }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+            // save data to Config
+            Config cfg = Config.Instance;
+
+            // save the General items
+            cfg.StartWithWindows = chkBoxStartWithWindows.Checked;
+        }
     }
 }

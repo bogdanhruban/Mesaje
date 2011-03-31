@@ -15,6 +15,8 @@ namespace Mesaje
         int _notificationWindowId = 1;
         static Config _instance;
 
+        bool _startWithWindows = false;
+
         /// <summary>
         /// Read the configuration options from file
         /// </summary>
@@ -50,6 +52,21 @@ namespace Mesaje
                     _instance = ReadConfigFile();
 
                 return _instance;
+            }
+        }
+
+        /// <summary>
+        /// Is the application starting with Windows?
+        /// </summary>
+        internal bool StartWithWindows
+        {
+            get
+            {
+                return _startWithWindows;
+            }
+            set
+            {
+                _startWithWindows = value;
             }
         }
 
