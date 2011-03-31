@@ -17,6 +17,12 @@ namespace Mesaje
 
         bool _startWithWindows = false;
 
+        // app update
+        bool _appUpdateAtStartup = false;
+        bool _appUpdateNever = false;
+        int _appUpdateInterval = 3600000;
+
+
         /// <summary>
         /// Read the configuration options from file
         /// </summary>
