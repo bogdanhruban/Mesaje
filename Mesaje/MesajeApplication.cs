@@ -31,6 +31,8 @@ namespace Mesaje
         Timer messageUpdateTimer;
         TaskbarNotifier taskbarNotifier;
 
+        Options optDialog = new Options();
+
         BackgroundWorker backWorker = new BackgroundWorker();
         #endregion
 
@@ -313,7 +315,8 @@ namespace Mesaje
             {
                 notifyIcon.Visible = true;
                 notifyIcon.ShowBalloonTip(500);
-                this.Hide();
+                this.Visible = false;
+                this.Hide();                
             }
             //else if (FormWindowState.Normal == this.WindowState)
             //{
@@ -334,6 +337,7 @@ namespace Mesaje
 
             //// Activate the form.
             //this.Activate();
+            optDialog.ShowDialog();
         }
 
         private void exitMenuItem_Click(object Sender, EventArgs e)
@@ -346,8 +350,7 @@ namespace Mesaje
         {
             // Close the form, which closes the application.
             //MessageBox.Show("Options clicked!");
-            Options opt = new Options();
-            opt.ShowDialog();
+            optDialog.ShowDialog();
         }
 
         private void newMessageMenuItem_Click(object Sender, EventArgs e)
