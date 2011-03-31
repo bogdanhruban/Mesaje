@@ -316,7 +316,7 @@ namespace Mesaje
                 notifyIcon.Visible = true;
                 notifyIcon.ShowBalloonTip(500);
                 this.Visible = false;
-                this.Hide();                
+                this.Hide();
             }
             //else if (FormWindowState.Normal == this.WindowState)
             //{
@@ -337,7 +337,7 @@ namespace Mesaje
 
             //// Activate the form.
             //this.Activate();
-            optDialog.ShowDialog();
+            //optDialog.ShowDialog();
         }
 
         private void exitMenuItem_Click(object Sender, EventArgs e)
@@ -382,7 +382,10 @@ namespace Mesaje
             // MesajeApplication
             // 
             this.ClientSize = new System.Drawing.Size(479, 370);
+            this.MaximizeBox = false;
             this.Name = "MesajeApplication";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.ResumeLayout(false);
 
         }
