@@ -29,8 +29,8 @@ namespace Mesaje
             pictureBox3.Image = bm3;
 
             // initialize pannels
-            panelMessagesGeneral.Top = panelGeneral.Top;
-            panelMessagesGeneral.Left = panelGeneral.Left;
+            panelMessagesCategories.Top = panelGeneral.Top;
+            panelMessagesCategories.Left = panelGeneral.Left;
 
             panelMessagesUpdate.Top = panelGeneral.Top;
             panelMessagesUpdate.Left = panelGeneral.Left;
@@ -53,6 +53,7 @@ namespace Mesaje
                 case "general":
                     panelGeneral.Visible = true;
                     panelMessagesGeneral.Visible = false;
+                    panelMessagesCategories.Visible = false;
                     panelMessagesUpdate.Visible = false;
                     panelSkinGeneral.Visible = false;
                     break;
@@ -60,18 +61,28 @@ namespace Mesaje
                 case "msgGeneral":
                     panelGeneral.Visible = false;
                     panelMessagesGeneral.Visible = true;
+                    panelMessagesCategories.Visible = false;
                     panelMessagesUpdate.Visible = false;
                     panelSkinGeneral.Visible = false;
                     break;
                 case "msgUpdate":
                     panelGeneral.Visible = false;
                     panelMessagesGeneral.Visible = false;
+                    panelMessagesCategories.Visible = false;
                     panelMessagesUpdate.Visible = true;
+                    panelSkinGeneral.Visible = false;
+                    break;
+                case "msgCategories":
+                    panelGeneral.Visible = false;
+                    panelMessagesGeneral.Visible = false;
+                    panelMessagesCategories.Visible = true;
+                    panelMessagesUpdate.Visible = false;
                     panelSkinGeneral.Visible = false;
                     break;
                 case "skin":
                     panelGeneral.Visible = false;
                     panelMessagesGeneral.Visible = false;
+                    panelMessagesCategories.Visible = false;
                     panelMessagesUpdate.Visible = false;
                     panelSkinGeneral.Visible = true;
                     break;

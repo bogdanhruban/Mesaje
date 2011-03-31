@@ -8,13 +8,11 @@ namespace Mesaje
 {
     internal class Config
     {
-        int _timeoutDisplayNotificationWindow = 6000; // 6 seconds
-        int _publishInterval = 3600000; // 1 hour
-        int _messageUpdateInterval = 3600000; // 1 hour
-        bool _randomWindows = false;    // use all the notification windows available or just the selected one?
-        int _notificationWindowId = 1;
         static Config _instance;
 
+        int _timeoutDisplayNotificationWindow = 6000; // 6 seconds
+        int _publishInterval = 3600000; // 1 hour
+        
         bool _startWithWindows = false;
 
         // app update
@@ -22,7 +20,20 @@ namespace Mesaje
         bool _appUpdateNever = false;
         int _appUpdateInterval = 3600000;
 
+        // message update
+        bool _messageUpdateAtStartup = false;
+        bool _messageUpdateNever = false;
+        int _messageUpdateInterval = 3600000; // 1 hour
 
+        // message categories
+        List<String> _messageCategories = new List<string>();
+        bool _allMessageCategories = true;
+
+        // skin chooser
+        bool _randomWindows = true;    // use all the notification windows available or just the selected one?
+        int _notificationWindowId = 1;
+
+        #region Read / Write config
         /// <summary>
         /// Read the configuration options from file
         /// </summary>
@@ -46,6 +57,7 @@ namespace Mesaje
             }
             return cfg;
         }
+        #endregion
 
         /// <summary>
         /// Get the instance of the Config object.

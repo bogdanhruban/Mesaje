@@ -119,6 +119,7 @@
     <Compile Include="TaskbarNotifier.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Util\Utilities.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
