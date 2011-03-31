@@ -11,11 +11,6 @@ namespace Mesaje
         #region Variables
         static Config _instance;
 
-        int _timeoutDisplayNotificationWindow = 6000; // 6 seconds
-        int _publishInterval = 3600000; // 1 hour
-        
-        bool _startWithWindows = false;
-
         // app update
         bool _appUpdateAtStartup = false;
         bool _appUpdateNever = false;
@@ -31,8 +26,13 @@ namespace Mesaje
         bool _allMessageCategories = true;
 
         // skin chooser
-        bool _randomWindows = true;    // use all the notification windows available or just the selected one?
-        int _notificationWindowId = 1;
+        bool _randomSkins = true;    // use all the notification windows available or just the selected one?
+        int _skinId = 1;
+
+        int _timeoutDisplayNotificationWindow = 6000; // 6 seconds
+        int _publishInterval = 3600000; // 1 hour
+
+        bool _startWithWindows = false;
         #endregion
 
         #region Read / Write config
@@ -47,11 +47,24 @@ namespace Mesaje
             AppSettingsReader appSettings = new AppSettingsReader();
             try
             {
+                cfg._appUpdateAtStartup = bool.Parse((string)appSettings.GetValue("AppUpdateAtStartup", typeof(string)));
+                cfg._appUpdateNever = bool.Parse((string)appSettings.GetValue("AppUpdateNeverUpdate", typeof(string)));
+                cfg._appUpdateInterval = int.Parse((string)appSettings.GetValue("AppUpdateInterval", typeof(string)));
+
+                cfg._messageUpdateAtStartup = bool.Parse((string)appSettings.GetValue("MessageUpdateAtStartup", typeof(string)));
+                cfg._messageUpdateNever = bool.Parse((string)appSettings.GetValue("MessageUpdateNeverUpdate", typeof(string)));
+                cfg._messageUpdateInterval = int.Parse((string)appSettings.GetValue("MessageUpdateInterval", typeof(string)));
+
+                cfg._allMessageCategories = bool.Parse((string)appSettings.GetValue("UseAllCategories", typeof(string)));
+
+                cfg._randomSkins = bool.Parse((string)appSettings.GetValue("UseRandomSkins", typeof(string)));
+                cfg._skinId = int.Parse((string)appSettings.GetValue("SkinId", typeof(string)));
+
                 cfg._timeoutDisplayNotificationWindow = int.Parse((string)appSettings.GetValue("TimeoutDisplayNotificationWindow", typeof(string)));
                 cfg._publishInterval = int.Parse((string)appSettings.GetValue("PublishInterval", typeof(string)));
-                cfg._messageUpdateInterval = int.Parse((string)appSettings.GetValue("MessageUpdateInterval", typeof(string)));
-                cfg._randomWindows = bool.Parse((string)appSettings.GetValue("UseRandomWindows", typeof(string)));
-                cfg._notificationWindowId = int.Parse((string)appSettings.GetValue("NotificationWindowId", typeof(string)));
+
+                cfg._startWithWindows = bool.Parse((string)appSettings.GetValue("StartWithWindows", typeof(string)));
+
             }
             catch (Exception e)
             {
@@ -191,11 +204,11 @@ namespace Mesaje
         {
             get
             {
-                return _randomWindows;
+                return _randomSkins;
             }
             set
             {
-                _randomWindows = value;
+                _randomSkins = value;
             }
         }
 
@@ -206,11 +219,11 @@ namespace Mesaje
         {
             get
             {
-                return _notificationWindowId;
+                return _skinId;
             }
             set
             {
-                _notificationWindowId = value;
+                _skinId = value;
             }
         }
         #endregion
