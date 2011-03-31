@@ -29,24 +29,24 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("General");
-            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("General");
-            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Update");
-            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("Mesaje", new System.Windows.Forms.TreeNode[] {
-            treeNode32,
-            treeNode33});
-            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("Invatisare");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("General");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("General");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Update");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Mesaje", new System.Windows.Forms.TreeNode[] {
+            treeNode7,
+            treeNode8});
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Invatisare");
             this.panelGeneral = new System.Windows.Forms.Panel();
             this.panelMessagesUpdate = new System.Windows.Forms.Panel();
             this.panelMessagesGeneral = new System.Windows.Forms.Panel();
             this.panelSkinGeneral = new System.Windows.Forms.Panel();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.groupBoxSkin3 = new System.Windows.Forms.GroupBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.groupBoxSkin2 = new System.Windows.Forms.GroupBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBoxSkin1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.checkBoxSkin1 = new System.Windows.Forms.CheckBox();
             this.checkBoxSkinAll = new System.Windows.Forms.CheckBox();
@@ -56,7 +56,7 @@
             this.checkBoxAllCategories = new System.Windows.Forms.CheckBox();
             this.checkedListCategorii = new System.Windows.Forms.CheckedListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.panelMsgUpdateFreq = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.numUpMsgMin = new System.Windows.Forms.NumericUpDown();
@@ -67,7 +67,7 @@
             this.checkBoxUpdateMsgWhenStarts = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBoxUpdateApplication = new System.Windows.Forms.GroupBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelAppUpdateFreq = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
@@ -86,20 +86,20 @@
             this.panelMessagesUpdate.SuspendLayout();
             this.panelMessagesGeneral.SuspendLayout();
             this.panelSkinGeneral.SuspendLayout();
-            this.groupBox5.SuspendLayout();
+            this.groupBoxSkin3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.groupBox4.SuspendLayout();
+            this.groupBoxSkin2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.groupBox3.SuspendLayout();
+            this.groupBoxSkin1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.panelMsgUpdateFreq.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUpMsgMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpMsgHours)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpMsgDays)).BeginInit();
             this.groupBoxUpdateApplication.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.panelAppUpdateFreq.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -107,8 +107,6 @@
             // 
             // panelGeneral
             // 
-            this.panelGeneral.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
             this.panelGeneral.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelGeneral.Controls.Add(this.groupBoxUpdateApplication);
             this.panelGeneral.Controls.Add(this.chkBoxStartWithWindows);
@@ -121,18 +119,17 @@
             // 
             this.panelMessagesUpdate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelMessagesUpdate.Controls.Add(this.groupBox1);
-            this.panelMessagesUpdate.Location = new System.Drawing.Point(173, 8);
+            this.panelMessagesUpdate.Location = new System.Drawing.Point(559, 12);
             this.panelMessagesUpdate.Name = "panelMessagesUpdate";
             this.panelMessagesUpdate.Size = new System.Drawing.Size(355, 265);
             this.panelMessagesUpdate.TabIndex = 3;
             // 
             // panelMessagesGeneral
             // 
-            this.panelMessagesGeneral.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelMessagesGeneral.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelMessagesGeneral.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelMessagesGeneral.Controls.Add(this.groupBox2);
-            this.panelMessagesGeneral.Location = new System.Drawing.Point(228, 2);
+            this.panelMessagesGeneral.Location = new System.Drawing.Point(-109, 118);
             this.panelMessagesGeneral.Name = "panelMessagesGeneral";
             this.panelMessagesGeneral.Size = new System.Drawing.Size(355, 265);
             this.panelMessagesGeneral.TabIndex = 4;
@@ -140,31 +137,30 @@
             // 
             // panelSkinGeneral
             // 
-            this.panelSkinGeneral.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelSkinGeneral.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelSkinGeneral.AutoScroll = true;
             this.panelSkinGeneral.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelSkinGeneral.Controls.Add(this.groupBox5);
-            this.panelSkinGeneral.Controls.Add(this.groupBox4);
-            this.panelSkinGeneral.Controls.Add(this.groupBox3);
+            this.panelSkinGeneral.Controls.Add(this.groupBoxSkin3);
+            this.panelSkinGeneral.Controls.Add(this.groupBoxSkin2);
+            this.panelSkinGeneral.Controls.Add(this.groupBoxSkin1);
             this.panelSkinGeneral.Controls.Add(this.checkBoxSkinAll);
             this.panelSkinGeneral.Controls.Add(this.label10);
-            this.panelSkinGeneral.Location = new System.Drawing.Point(534, 8);
+            this.panelSkinGeneral.Location = new System.Drawing.Point(262, 112);
             this.panelSkinGeneral.Name = "panelSkinGeneral";
             this.panelSkinGeneral.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.panelSkinGeneral.Size = new System.Drawing.Size(355, 265);
             this.panelSkinGeneral.TabIndex = 5;
             // 
-            // groupBox5
+            // groupBoxSkin3
             // 
-            this.groupBox5.Controls.Add(this.pictureBox3);
-            this.groupBox5.Controls.Add(this.checkBox2);
-            this.groupBox5.Location = new System.Drawing.Point(141, 259);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(170, 112);
-            this.groupBox5.TabIndex = 7;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Skin 3";
+            this.groupBoxSkin3.Controls.Add(this.pictureBox3);
+            this.groupBoxSkin3.Controls.Add(this.checkBox2);
+            this.groupBoxSkin3.Location = new System.Drawing.Point(141, 259);
+            this.groupBoxSkin3.Name = "groupBoxSkin3";
+            this.groupBoxSkin3.Size = new System.Drawing.Size(170, 112);
+            this.groupBoxSkin3.TabIndex = 7;
+            this.groupBoxSkin3.TabStop = false;
+            this.groupBoxSkin3.Text = "Skin 3";
             // 
             // pictureBox3
             // 
@@ -186,16 +182,16 @@
             this.checkBox2.TabIndex = 0;
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
-            // groupBox4
+            // groupBoxSkin2
             // 
-            this.groupBox4.Controls.Add(this.pictureBox2);
-            this.groupBox4.Controls.Add(this.checkBox1);
-            this.groupBox4.Location = new System.Drawing.Point(141, 141);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(170, 112);
-            this.groupBox4.TabIndex = 6;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Skin 2";
+            this.groupBoxSkin2.Controls.Add(this.pictureBox2);
+            this.groupBoxSkin2.Controls.Add(this.checkBox1);
+            this.groupBoxSkin2.Location = new System.Drawing.Point(141, 141);
+            this.groupBoxSkin2.Name = "groupBoxSkin2";
+            this.groupBoxSkin2.Size = new System.Drawing.Size(170, 112);
+            this.groupBoxSkin2.TabIndex = 6;
+            this.groupBoxSkin2.TabStop = false;
+            this.groupBoxSkin2.Text = "Skin 2";
             // 
             // pictureBox2
             // 
@@ -217,16 +213,16 @@
             this.checkBox1.TabIndex = 0;
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // groupBox3
+            // groupBoxSkin1
             // 
-            this.groupBox3.Controls.Add(this.pictureBox1);
-            this.groupBox3.Controls.Add(this.checkBoxSkin1);
-            this.groupBox3.Location = new System.Drawing.Point(141, 24);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(170, 112);
-            this.groupBox3.TabIndex = 5;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Skin 1";
+            this.groupBoxSkin1.Controls.Add(this.pictureBox1);
+            this.groupBoxSkin1.Controls.Add(this.checkBoxSkin1);
+            this.groupBoxSkin1.Location = new System.Drawing.Point(141, 24);
+            this.groupBoxSkin1.Name = "groupBoxSkin1";
+            this.groupBoxSkin1.Size = new System.Drawing.Size(170, 112);
+            this.groupBoxSkin1.TabIndex = 5;
+            this.groupBoxSkin1.TabStop = false;
+            this.groupBoxSkin1.Text = "Skin 1";
             // 
             // pictureBox1
             // 
@@ -257,6 +253,7 @@
             this.checkBoxSkinAll.TabIndex = 4;
             this.checkBoxSkinAll.Text = "Toate ferestrele";
             this.checkBoxSkinAll.UseVisualStyleBackColor = true;
+            this.checkBoxSkinAll.CheckedChanged += new System.EventHandler(this.checkBoxSkinAll_CheckedChanged);
             // 
             // label10
             // 
@@ -297,6 +294,7 @@
             this.checkBoxAllCategories.TabIndex = 2;
             this.checkBoxAllCategories.Text = "Toate categoriile";
             this.checkBoxAllCategories.UseVisualStyleBackColor = true;
+            this.checkBoxAllCategories.CheckedChanged += new System.EventHandler(this.checkBoxAllCategories_CheckedChanged);
             // 
             // checkedListCategorii
             // 
@@ -308,7 +306,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.panel3);
+            this.groupBox1.Controls.Add(this.panelMsgUpdateFreq);
             this.groupBox1.Controls.Add(this.checkBoxUpdateMsgNever);
             this.groupBox1.Controls.Add(this.checkBoxUpdateMsgWhenStarts);
             this.groupBox1.Controls.Add(this.label8);
@@ -319,18 +317,18 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Update mesaje";
             // 
-            // panel3
+            // panelMsgUpdateFreq
             // 
-            this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.label6);
-            this.panel3.Controls.Add(this.numUpMsgMin);
-            this.panel3.Controls.Add(this.label7);
-            this.panel3.Controls.Add(this.numUpMsgHours);
-            this.panel3.Controls.Add(this.numUpMsgDays);
-            this.panel3.Location = new System.Drawing.Point(10, 36);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(149, 51);
-            this.panel3.TabIndex = 3;
+            this.panelMsgUpdateFreq.Controls.Add(this.label5);
+            this.panelMsgUpdateFreq.Controls.Add(this.label6);
+            this.panelMsgUpdateFreq.Controls.Add(this.numUpMsgMin);
+            this.panelMsgUpdateFreq.Controls.Add(this.label7);
+            this.panelMsgUpdateFreq.Controls.Add(this.numUpMsgHours);
+            this.panelMsgUpdateFreq.Controls.Add(this.numUpMsgDays);
+            this.panelMsgUpdateFreq.Location = new System.Drawing.Point(10, 36);
+            this.panelMsgUpdateFreq.Name = "panelMsgUpdateFreq";
+            this.panelMsgUpdateFreq.Size = new System.Drawing.Size(149, 51);
+            this.panelMsgUpdateFreq.TabIndex = 3;
             // 
             // label5
             // 
@@ -389,6 +387,7 @@
             this.checkBoxUpdateMsgNever.TabIndex = 4;
             this.checkBoxUpdateMsgNever.Text = "Niciodata";
             this.checkBoxUpdateMsgNever.UseVisualStyleBackColor = true;
+            this.checkBoxUpdateMsgNever.CheckedChanged += new System.EventHandler(this.checkBoxUpdateMsgNever_CheckedChanged);
             // 
             // checkBoxUpdateMsgWhenStarts
             // 
@@ -399,6 +398,7 @@
             this.checkBoxUpdateMsgWhenStarts.TabIndex = 3;
             this.checkBoxUpdateMsgWhenStarts.Text = "Cand porneste aplicatia";
             this.checkBoxUpdateMsgWhenStarts.UseVisualStyleBackColor = true;
+            this.checkBoxUpdateMsgWhenStarts.CheckedChanged += new System.EventHandler(this.checkBoxUpdateMsgWhenStarts_CheckedChanged);
             // 
             // label8
             // 
@@ -411,7 +411,7 @@
             // 
             // groupBoxUpdateApplication
             // 
-            this.groupBoxUpdateApplication.Controls.Add(this.panel1);
+            this.groupBoxUpdateApplication.Controls.Add(this.panelAppUpdateFreq);
             this.groupBoxUpdateApplication.Controls.Add(this.checkBoxNever);
             this.groupBoxUpdateApplication.Controls.Add(this.checkBoxWhenAppStarts);
             this.groupBoxUpdateApplication.Controls.Add(this.label1);
@@ -422,18 +422,18 @@
             this.groupBoxUpdateApplication.TabStop = false;
             this.groupBoxUpdateApplication.Text = "Update aplicatie";
             // 
-            // panel1
+            // panelAppUpdateFreq
             // 
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.numericUpDown3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.numericUpDown2);
-            this.panel1.Controls.Add(this.numericUpDown1);
-            this.panel1.Location = new System.Drawing.Point(10, 36);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(147, 54);
-            this.panel1.TabIndex = 3;
+            this.panelAppUpdateFreq.Controls.Add(this.label4);
+            this.panelAppUpdateFreq.Controls.Add(this.label3);
+            this.panelAppUpdateFreq.Controls.Add(this.numericUpDown3);
+            this.panelAppUpdateFreq.Controls.Add(this.label2);
+            this.panelAppUpdateFreq.Controls.Add(this.numericUpDown2);
+            this.panelAppUpdateFreq.Controls.Add(this.numericUpDown1);
+            this.panelAppUpdateFreq.Location = new System.Drawing.Point(10, 36);
+            this.panelAppUpdateFreq.Name = "panelAppUpdateFreq";
+            this.panelAppUpdateFreq.Size = new System.Drawing.Size(147, 54);
+            this.panelAppUpdateFreq.TabIndex = 3;
             // 
             // label4
             // 
@@ -492,6 +492,7 @@
             this.checkBoxNever.TabIndex = 4;
             this.checkBoxNever.Text = "Niciodata";
             this.checkBoxNever.UseVisualStyleBackColor = true;
+            this.checkBoxNever.CheckedChanged += new System.EventHandler(this.checkBoxNever_CheckedChanged);
             // 
             // checkBoxWhenAppStarts
             // 
@@ -502,6 +503,7 @@
             this.checkBoxWhenAppStarts.TabIndex = 3;
             this.checkBoxWhenAppStarts.Text = "Cand porneste aplicatia";
             this.checkBoxWhenAppStarts.UseVisualStyleBackColor = true;
+            this.checkBoxWhenAppStarts.CheckedChanged += new System.EventHandler(this.checkBoxWhenAppStarts_CheckedChanged);
             // 
             // label1
             // 
@@ -527,7 +529,7 @@
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(462, 288);
+            this.btnCancel.Location = new System.Drawing.Point(460, 290);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(91, 25);
             this.btnCancel.TabIndex = 2;
@@ -538,7 +540,7 @@
             // btnOk
             // 
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOk.Location = new System.Drawing.Point(365, 288);
+            this.btnOk.Location = new System.Drawing.Point(363, 290);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(91, 25);
             this.btnOk.TabIndex = 3;
@@ -556,20 +558,20 @@
                         | System.Windows.Forms.AnchorStyles.Left)));
             this.treeView1.Location = new System.Drawing.Point(12, 12);
             this.treeView1.Name = "treeView1";
-            treeNode31.Name = "general";
-            treeNode31.Text = "General";
-            treeNode32.Name = "msgGeneral";
-            treeNode32.Text = "General";
-            treeNode33.Name = "msgUpdate";
-            treeNode33.Text = "Update";
-            treeNode34.Name = "message";
-            treeNode34.Text = "Mesaje";
-            treeNode35.Name = "skin";
-            treeNode35.Text = "Invatisare";
+            treeNode6.Name = "general";
+            treeNode6.Text = "General";
+            treeNode7.Name = "msgGeneral";
+            treeNode7.Text = "General";
+            treeNode8.Name = "msgUpdate";
+            treeNode8.Text = "Update";
+            treeNode9.Name = "message";
+            treeNode9.Text = "Mesaje";
+            treeNode10.Name = "skin";
+            treeNode10.Text = "Invatisare";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode31,
-            treeNode34,
-            treeNode35});
+            treeNode6,
+            treeNode9,
+            treeNode10});
             this.treeView1.Size = new System.Drawing.Size(180, 265);
             this.treeView1.TabIndex = 4;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -580,7 +582,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(565, 321);
+            this.ClientSize = new System.Drawing.Size(563, 323);
             this.Controls.Add(this.panelMessagesUpdate);
             this.Controls.Add(this.panelSkinGeneral);
             this.Controls.Add(this.treeView1);
@@ -589,9 +591,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.panelGeneral);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(581, 359);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(581, 359);
             this.Name = "Options";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -602,28 +602,28 @@
             this.panelMessagesGeneral.ResumeLayout(false);
             this.panelSkinGeneral.ResumeLayout(false);
             this.panelSkinGeneral.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
+            this.groupBoxSkin3.ResumeLayout(false);
+            this.groupBoxSkin3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
+            this.groupBoxSkin2.ResumeLayout(false);
+            this.groupBoxSkin2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.groupBoxSkin1.ResumeLayout(false);
+            this.groupBoxSkin1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.panelMsgUpdateFreq.ResumeLayout(false);
+            this.panelMsgUpdateFreq.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUpMsgMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpMsgHours)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpMsgDays)).EndInit();
             this.groupBoxUpdateApplication.ResumeLayout(false);
             this.groupBoxUpdateApplication.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panelAppUpdateFreq.ResumeLayout(false);
+            this.panelAppUpdateFreq.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
@@ -639,7 +639,7 @@
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.GroupBox groupBoxUpdateApplication;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelAppUpdateFreq;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown numericUpDown3;
@@ -652,7 +652,7 @@
         private System.Windows.Forms.CheckBox chkBoxStartWithWindows;
         private System.Windows.Forms.Panel panelMessagesUpdate;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panelMsgUpdateFreq;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.NumericUpDown numUpMsgMin;
@@ -672,12 +672,12 @@
         private System.Windows.Forms.CheckBox checkBoxSkin1;
         private System.Windows.Forms.CheckBox checkBoxSkinAll;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox groupBoxSkin3;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox groupBoxSkin2;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBoxSkin1;
     }
 }

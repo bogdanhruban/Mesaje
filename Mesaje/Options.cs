@@ -80,5 +80,99 @@ namespace Mesaje
                     break;
             }
         }
+
+        private void checkBoxWhenAppStarts_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxWhenAppStarts.Checked == true)
+            {
+                panelAppUpdateFreq.Enabled = false;
+            }
+            else
+            {
+                panelAppUpdateFreq.Enabled = true;
+            }
+        }
+
+        private void checkBoxNever_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxNever.Checked == true)
+            {
+                panelAppUpdateFreq.Enabled = false;
+                checkBoxWhenAppStarts.Enabled = false;
+            }
+            else
+            {
+                checkBoxWhenAppStarts.Enabled = true;
+                if (checkBoxWhenAppStarts.Checked == true)
+                {
+                    panelAppUpdateFreq.Enabled = false;
+                }
+                else
+                {
+                    panelAppUpdateFreq.Enabled = true;
+                }
+            }
+        }
+
+        private void checkBoxUpdateMsgWhenStarts_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxUpdateMsgWhenStarts.Checked == true)
+            {
+                panelMsgUpdateFreq.Enabled = false;
+            }
+            else
+            {
+                panelMsgUpdateFreq.Enabled = true;
+            }
+        }
+
+        private void checkBoxUpdateMsgNever_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxUpdateMsgNever.Checked == true)
+            {
+                panelMsgUpdateFreq.Enabled = false;
+                checkBoxUpdateMsgWhenStarts.Enabled = false;
+            }
+            else
+            {
+                checkBoxUpdateMsgWhenStarts.Enabled = true;
+                if (checkBoxUpdateMsgWhenStarts.Checked == true)
+                {
+                    panelMsgUpdateFreq.Enabled = false;
+                }
+                else
+                {
+                    panelMsgUpdateFreq.Enabled = true;
+                }
+            }
+        }
+
+        private void checkBoxAllCategories_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxAllCategories.Checked == true)
+            {
+                checkedListCategorii.Enabled = false;
+            }
+            else
+            {
+                checkedListCategorii.Enabled = true;
+            }            
+        }
+
+        private void checkBoxSkinAll_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxSkinAll.Checked == true)
+            {
+                groupBoxSkin1.Enabled = false;
+                groupBoxSkin2.Enabled = false;
+                groupBoxSkin3.Enabled = false;
+            }
+            else
+            {
+                groupBoxSkin1.Enabled = true;
+                groupBoxSkin2.Enabled = true;
+                groupBoxSkin3.Enabled = true;
+            }
+        }
     }
 }
