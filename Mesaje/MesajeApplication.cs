@@ -29,7 +29,10 @@ namespace Mesaje
 
         Timer messageDisplayTimer;
         Timer messageUpdateTimer;
-        TaskbarNotifier taskbarNotifier;
+        
+        TaskbarNotifier taskbarNotifier1;
+        TaskbarNotifier taskbarNotifier2;
+        TaskbarNotifier taskbarNotifier3;
 
         Options optDialog = new Options();
 
@@ -161,14 +164,33 @@ namespace Mesaje
             messageUpdateTimer.Enabled = true;
             messageUpdateTimer.Start();
 
-            taskbarNotifier = new TaskbarNotifier();
-            taskbarNotifier.SetBackgroundBitmap(Resource.skin3, Color.FromArgb(255, 0, 255));
-            taskbarNotifier.SetCloseBitmap(Resource.close, Color.FromArgb(255, 0, 255), new Point(280, 57));
-            taskbarNotifier.TitleRectangle = new Rectangle(150, 57, 125, 28);
-            taskbarNotifier.ContentRectangle = new Rectangle(75, 92, 215, 55);
-            taskbarNotifier.TitleClick += new EventHandler(TitleClick);
-            taskbarNotifier.ContentClick += new EventHandler(ContentClick);
-            taskbarNotifier.CloseClick += new EventHandler(CloseClick);
+            // initialize the Notification windows
+            //taskbarNotifier1 = new TaskbarNotifier();
+            //taskbarNotifier1.SetBackgroundBitmap(Resource.skin, Color.FromArgb(255, 0, 255));
+            //taskbarNotifier1.SetCloseBitmap(Resource.close, Color.FromArgb(255, 0, 255), new Point(280, 57));
+            //taskbarNotifier1.TitleRectangle = new Rectangle(150, 57, 125, 28);
+            //taskbarNotifier1.ContentRectangle = new Rectangle(75, 92, 215, 55);
+            //taskbarNotifier1.TitleClick += new EventHandler(TitleClick);
+            //taskbarNotifier1.ContentClick += new EventHandler(ContentClick);
+            //taskbarNotifier1.CloseClick += new EventHandler(CloseClick);
+
+            //taskbarNotifier2 = new TaskbarNotifier();
+            //taskbarNotifier2.SetBackgroundBitmap(Resource.skin2, Color.FromArgb(255, 0, 255));
+            //taskbarNotifier2.SetCloseBitmap(Resource.close2, Color.FromArgb(255, 0, 255), new Point(280, 57));
+            //taskbarNotifier2.TitleRectangle = new Rectangle(150, 57, 125, 28);
+            //taskbarNotifier2.ContentRectangle = new Rectangle(75, 92, 215, 55);
+            //taskbarNotifier2.TitleClick += new EventHandler(TitleClick);
+            //taskbarNotifier2.ContentClick += new EventHandler(ContentClick);
+            //taskbarNotifier2.CloseClick += new EventHandler(CloseClick);
+
+            taskbarNotifier3 = new TaskbarNotifier();
+            taskbarNotifier3.SetBackgroundBitmap(Resource.skin3, Color.FromArgb(255, 0, 255));
+            taskbarNotifier3.SetCloseBitmap(Resource.close, Color.FromArgb(255, 0, 255), new Point(280, 57));
+            taskbarNotifier3.TitleRectangle = new Rectangle(150, 57, 125, 28);
+            taskbarNotifier3.ContentRectangle = new Rectangle(75, 92, 215, 55);
+            taskbarNotifier3.TitleClick += new EventHandler(TitleClick);
+            taskbarNotifier3.ContentClick += new EventHandler(ContentClick);
+            taskbarNotifier3.CloseClick += new EventHandler(CloseClick);
 
             //LoadItems();
             //MessageManagement.UpdateXml();
@@ -258,26 +280,26 @@ namespace Mesaje
                 return;
             }
 
-            if (taskbarNotifier == null)
+            if (taskbarNotifier3 == null)
             {
-                taskbarNotifier = new TaskbarNotifier();
-                taskbarNotifier.SetBackgroundBitmap(Resource.skin3, Color.FromArgb(255, 0, 255));
-                taskbarNotifier.SetCloseBitmap(Resource.close, Color.FromArgb(255, 0, 255), new Point(280, 57));
-                taskbarNotifier.TitleRectangle = new Rectangle(150, 57, 125, 28);
-                taskbarNotifier.ContentRectangle = new Rectangle(75, 92, 215, 55);
-                taskbarNotifier.TitleClick += new EventHandler(TitleClick);
-                taskbarNotifier.ContentClick += new EventHandler(ContentClick);
-                taskbarNotifier.CloseClick += new EventHandler(CloseClick);
+                taskbarNotifier3 = new TaskbarNotifier();
+                taskbarNotifier3.SetBackgroundBitmap(Resource.skin3, Color.FromArgb(255, 0, 255));
+                taskbarNotifier3.SetCloseBitmap(Resource.close, Color.FromArgb(255, 0, 255), new Point(280, 57));
+                taskbarNotifier3.TitleRectangle = new Rectangle(150, 57, 125, 28);
+                taskbarNotifier3.ContentRectangle = new Rectangle(75, 92, 215, 55);
+                taskbarNotifier3.TitleClick += new EventHandler(TitleClick);
+                taskbarNotifier3.ContentClick += new EventHandler(ContentClick);
+                taskbarNotifier3.CloseClick += new EventHandler(CloseClick);
             }
             
-            taskbarNotifier.CloseClickable = true;
-            taskbarNotifier.TitleClickable = false;
-            taskbarNotifier.ContentClickable = false;
-            taskbarNotifier.EnableSelectionRectangle = true;
-            taskbarNotifier.KeepVisibleOnMousOver = true;	// Added Rev 002
-            taskbarNotifier.ReShowOnMouseOver = true;			// Added Rev 002
+            taskbarNotifier3.CloseClickable = true;
+            taskbarNotifier3.TitleClickable = false;
+            taskbarNotifier3.ContentClickable = false;
+            taskbarNotifier3.EnableSelectionRectangle = true;
+            taskbarNotifier3.KeepVisibleOnMousOver = true;	// Added Rev 002
+            taskbarNotifier3.ReShowOnMouseOver = true;			// Added Rev 002
 
-            taskbarNotifier.Show(msg.Title, msg.Body, 500, Config.Instance.TimeoutDisplayNotificationWindow, 500);
+            taskbarNotifier3.Show(msg.Title, msg.Body, 500, Config.Instance.TimeoutDisplayNotificationWindow, 500);
 
             // original values
             //textBoxDelayShowing.Text = "500";
@@ -303,8 +325,8 @@ namespace Mesaje
         private void CloseClick(object sender, EventArgs e)
         {
             //MessageBox.Show("Close clicked!");
-            taskbarNotifier.Close();
-            taskbarNotifier = null;
+            taskbarNotifier3.Close();
+            taskbarNotifier3 = null;
         }
         #endregion
 
