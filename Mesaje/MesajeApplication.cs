@@ -265,6 +265,64 @@ namespace Mesaje
             }
         }
 
+        private void DisplayNotificationWindow(string title, string body, int timeout, int winId)
+        {
+            TaskbarNotifier notifyWind = null;
+            switch (winId)
+            {
+                case 1:
+                    notifyWind = taskbarNotifier1;
+                    break;
+                case 2:
+                    notifyWind = taskbarNotifier2;
+                    break;
+                case 3:
+                    notifyWind = taskbarNotifier3;
+                    break;
+                default:
+                    notifyWind = taskbarNotifier3;
+                    break;
+            }
+
+            if (notifyWind == null)
+            {
+                // recreate the window
+                notifyWind = CreateNotificationWindow(winId);
+            }
+
+            notifyWind.Show(title, body, 500, timeout, 500);
+        }
+
+        private TaskbarNotifier CreateNotificationWindow(int winId)
+        {
+            TaskbarNotifier notify = new TaskbarNotifier();
+
+            switch (winId)
+            {
+                case 1:
+                    notifyWind = taskbarNotifier1;
+                    break;
+                case 2:
+                    notifyWind = taskbarNotifier2;
+                    break;
+                case 3:
+                    notifyWind = taskbarNotifier3;
+                    break;
+                default:
+                    notifyWind = taskbarNotifier3;
+                    break;
+            }
+
+            notify.CloseClickable = true;
+            notify.TitleClickable = false;
+            notify.ContentClickable = false;
+            notify.EnableSelectionRectangle = true;
+            notify.KeepVisibleOnMousOver = true;	// Added Rev 002
+            notify.ReShowOnMouseOver = true;			// Added Rev 002
+
+            return notify;
+        }
+
         private void MessageTimeout(object sender, EventArgs e)
         {
             Data.Message msg = null;
@@ -280,37 +338,28 @@ namespace Mesaje
                 return;
             }
 
-            if (taskbarNotifier3 == null)
-            {
-                taskbarNotifier3 = new TaskbarNotifier();
-                taskbarNotifier3.SetBackgroundBitmap(Resource.skin3, Color.FromArgb(255, 0, 255));
-                taskbarNotifier3.SetCloseBitmap(Resource.close, Color.FromArgb(255, 0, 255), new Point(280, 57));
-                taskbarNotifier3.TitleRectangle = new Rectangle(150, 57, 125, 28);
-                taskbarNotifier3.ContentRectangle = new Rectangle(75, 92, 215, 55);
-                taskbarNotifier3.TitleClick += new EventHandler(TitleClick);
-                taskbarNotifier3.ContentClick += new EventHandler(ContentClick);
-                taskbarNotifier3.CloseClick += new EventHandler(CloseClick);
-            }
+            //if (taskbarNotifier3 == null)
+            //{
+            //    taskbarNotifier3 = new TaskbarNotifier();
+            //    taskbarNotifier3.SetBackgroundBitmap(Resource.skin3, Color.FromArgb(255, 0, 255));
+            //    taskbarNotifier3.SetCloseBitmap(Resource.close, Color.FromArgb(255, 0, 255), new Point(280, 57));
+            //    taskbarNotifier3.TitleRectangle = new Rectangle(150, 57, 125, 28);
+            //    taskbarNotifier3.ContentRectangle = new Rectangle(75, 92, 215, 55);
+            //    taskbarNotifier3.TitleClick += new EventHandler(TitleClick);
+            //    taskbarNotifier3.ContentClick += new EventHandler(ContentClick);
+            //    taskbarNotifier3.CloseClick += new EventHandler(CloseClick);
+            //}
             
-            taskbarNotifier3.CloseClickable = true;
-            taskbarNotifier3.TitleClickable = false;
-            taskbarNotifier3.ContentClickable = false;
-            taskbarNotifier3.EnableSelectionRectangle = true;
-            taskbarNotifier3.KeepVisibleOnMousOver = true;	// Added Rev 002
-            taskbarNotifier3.ReShowOnMouseOver = true;			// Added Rev 002
+            //taskbarNotifier3.CloseClickable = true;
+            //taskbarNotifier3.TitleClickable = false;
+            //taskbarNotifier3.ContentClickable = false;
+            //taskbarNotifier3.EnableSelectionRectangle = true;
+            //taskbarNotifier3.KeepVisibleOnMousOver = true;	// Added Rev 002
+            //taskbarNotifier3.ReShowOnMouseOver = true;			// Added Rev 002
 
-            taskbarNotifier3.Show(msg.Title, msg.Body, 500, Config.Instance.TimeoutDisplayNotificationWindow, 500);
+            //taskbarNotifier3.Show(msg.Title, msg.Body, 500, Config.Instance.TimeoutDisplayNotificationWindow, 500);
 
-            // original values
-            //textBoxDelayShowing.Text = "500";
-            //textBoxDelayStaying.Text = "3000";
-            //textBoxDelayHiding.Text = "500";
-            //checkBoxSelectionRectangle.Checked = true;
-            //checkBoxTitleClickable.Checked = false;
-            //checkBoxContentClickable.Checked = true;
-            //checkBoxCloseClickable.Checked = true;
-            //checkBoxKeepVisibleOnMouseOver.Checked = true;		// Added Rev 002
-            //checkBoxReShowOnMouseOver.Checked = false;			// Added Rev 002
+            DisplayNotificationWindow(msg.Title, msg.Body, Config.Instance.TimeoutDisplayNotificationWindow, 3);
         }
 
         #region TaskbarNotifierEvents
