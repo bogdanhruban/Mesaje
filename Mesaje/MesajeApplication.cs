@@ -73,7 +73,7 @@ namespace Mesaje
             //    this.lblStatusBarInfo.Text = "Canceled!";
             //}
 
-            if (!(e.Error == null))
+            if (e.Error != null)
             {
                 //this.lblStatusBarInfo.Text = ("Error: " + e.Error.Message);
                 Logger.Write(e.Error.Message, LoggerErrorLevels.ERROR);
@@ -151,7 +151,6 @@ namespace Mesaje
             AppSettingsReader appSettings = new AppSettingsReader();
             // set the timer
             messageDisplayTimer = new Timer();
-            //messageDisplayTimer.Interval = (int)(appSettings.GetValue("MessageInterval", typeof(int)));
             messageDisplayTimer.Interval = Config.Instance.PublishInterval;
             messageDisplayTimer.Tick += new EventHandler(MessageTimeout);
             messageDisplayTimer.Enabled = true;
@@ -173,6 +172,9 @@ namespace Mesaje
             taskbarNotifier1.TitleClick += new EventHandler(TitleClick);
             taskbarNotifier1.ContentClick += new EventHandler(ContentClick);
             taskbarNotifier1.CloseClick += new EventHandler(CloseClick);
+            taskbarNotifier1.EnableSelectionRectangle = true;
+            taskbarNotifier1.KeepVisibleOnMousOver = true;
+            taskbarNotifier1.ReShowOnMouseOver = true;
 
             taskbarNotifier2 = new TaskbarNotifier();
             taskbarNotifier2.SetBackgroundBitmap(Resource.skin2, Color.FromArgb(255, 0, 255));
@@ -182,6 +184,9 @@ namespace Mesaje
             taskbarNotifier2.TitleClick += new EventHandler(TitleClick);
             taskbarNotifier2.ContentClick += new EventHandler(ContentClick);
             taskbarNotifier2.CloseClick += new EventHandler(CloseClick);
+            taskbarNotifier2.EnableSelectionRectangle = true;
+            taskbarNotifier2.KeepVisibleOnMousOver = true;
+            taskbarNotifier2.ReShowOnMouseOver = true;
 
             taskbarNotifier3 = new TaskbarNotifier();
             taskbarNotifier3.SetBackgroundBitmap(Resource.skin3, Color.FromArgb(255, 0, 255));
@@ -191,6 +196,9 @@ namespace Mesaje
             taskbarNotifier3.TitleClick += new EventHandler(TitleClick);
             taskbarNotifier3.ContentClick += new EventHandler(ContentClick);
             taskbarNotifier3.CloseClick += new EventHandler(CloseClick);
+            taskbarNotifier3.EnableSelectionRectangle = true;
+            taskbarNotifier3.KeepVisibleOnMousOver = true;
+            taskbarNotifier3.ReShowOnMouseOver = true;
 
             //LoadItems();
             //MessageManagement.UpdateXml();
@@ -325,8 +333,8 @@ namespace Mesaje
             notify.TitleClickable = false;
             notify.ContentClickable = false;
             notify.EnableSelectionRectangle = true;
-            notify.KeepVisibleOnMousOver = true;	// Added Rev 002
-            notify.ReShowOnMouseOver = true;			// Added Rev 002
+            notify.KeepVisibleOnMousOver = true;
+            notify.ReShowOnMouseOver = true;
 
             return notify;
         }
