@@ -165,23 +165,23 @@ namespace Mesaje
             messageUpdateTimer.Start();
 
             // initialize the Notification windows
-            //taskbarNotifier1 = new TaskbarNotifier();
-            //taskbarNotifier1.SetBackgroundBitmap(Resource.skin, Color.FromArgb(255, 0, 255));
-            //taskbarNotifier1.SetCloseBitmap(Resource.close, Color.FromArgb(255, 0, 255), new Point(280, 57));
-            //taskbarNotifier1.TitleRectangle = new Rectangle(150, 57, 125, 28);
-            //taskbarNotifier1.ContentRectangle = new Rectangle(75, 92, 215, 55);
-            //taskbarNotifier1.TitleClick += new EventHandler(TitleClick);
-            //taskbarNotifier1.ContentClick += new EventHandler(ContentClick);
-            //taskbarNotifier1.CloseClick += new EventHandler(CloseClick);
+            taskbarNotifier1 = new TaskbarNotifier();
+            taskbarNotifier1.SetBackgroundBitmap(Resource.skin, Color.FromArgb(255, 0, 255));
+            taskbarNotifier1.SetCloseBitmap(Resource.close, Color.FromArgb(255, 0, 255), new Point(280, 57));
+            taskbarNotifier1.TitleRectangle = new Rectangle(150, 57, 125, 28);
+            taskbarNotifier1.ContentRectangle = new Rectangle(75, 92, 215, 55);
+            taskbarNotifier1.TitleClick += new EventHandler(TitleClick);
+            taskbarNotifier1.ContentClick += new EventHandler(ContentClick);
+            taskbarNotifier1.CloseClick += new EventHandler(CloseClick);
 
-            //taskbarNotifier2 = new TaskbarNotifier();
-            //taskbarNotifier2.SetBackgroundBitmap(Resource.skin2, Color.FromArgb(255, 0, 255));
-            //taskbarNotifier2.SetCloseBitmap(Resource.close2, Color.FromArgb(255, 0, 255), new Point(280, 57));
-            //taskbarNotifier2.TitleRectangle = new Rectangle(150, 57, 125, 28);
-            //taskbarNotifier2.ContentRectangle = new Rectangle(75, 92, 215, 55);
-            //taskbarNotifier2.TitleClick += new EventHandler(TitleClick);
-            //taskbarNotifier2.ContentClick += new EventHandler(ContentClick);
-            //taskbarNotifier2.CloseClick += new EventHandler(CloseClick);
+            taskbarNotifier2 = new TaskbarNotifier();
+            taskbarNotifier2.SetBackgroundBitmap(Resource.skin2, Color.FromArgb(255, 0, 255));
+            taskbarNotifier2.SetCloseBitmap(Resource.close2, Color.FromArgb(255, 0, 255), new Point(280, 57));
+            taskbarNotifier2.TitleRectangle = new Rectangle(150, 57, 125, 28);
+            taskbarNotifier2.ContentRectangle = new Rectangle(75, 92, 215, 55);
+            taskbarNotifier2.TitleClick += new EventHandler(TitleClick);
+            taskbarNotifier2.ContentClick += new EventHandler(ContentClick);
+            taskbarNotifier2.CloseClick += new EventHandler(CloseClick);
 
             taskbarNotifier3 = new TaskbarNotifier();
             taskbarNotifier3.SetBackgroundBitmap(Resource.skin3, Color.FromArgb(255, 0, 255));
@@ -277,8 +277,6 @@ namespace Mesaje
                     notifyWind = taskbarNotifier2;
                     break;
                 case 3:
-                    notifyWind = taskbarNotifier3;
-                    break;
                 default:
                     notifyWind = taskbarNotifier3;
                     break;
@@ -300,16 +298,26 @@ namespace Mesaje
             switch (winId)
             {
                 case 1:
-                    notifyWind = taskbarNotifier1;
+                    // skin 1
+                    notify.SetBackgroundBitmap(Resource.skin, Color.FromArgb(255, 0, 255));
+                    notify.SetCloseBitmap(Resource.close, Color.FromArgb(255, 0, 255), new Point(280, 57));
+                    notify.TitleRectangle = new Rectangle(150, 57, 125, 28);
+                    notify.ContentRectangle = new Rectangle(75, 92, 215, 55);
                     break;
                 case 2:
-                    notifyWind = taskbarNotifier2;
+                    //skin 2
+                    notify.SetBackgroundBitmap(Resource.skin2, Color.FromArgb(255, 0, 255));
+                    notify.SetCloseBitmap(Resource.close2, Color.FromArgb(255, 0, 255), new Point(280, 57));
+                    notify.TitleRectangle = new Rectangle(150, 57, 125, 28);
+                    notify.ContentRectangle = new Rectangle(75, 92, 215, 55);
                     break;
                 case 3:
-                    notifyWind = taskbarNotifier3;
-                    break;
                 default:
-                    notifyWind = taskbarNotifier3;
+                    //skin 3
+                    notify.SetBackgroundBitmap(Resource.skin3, Color.FromArgb(255, 0, 255));
+                    notify.SetCloseBitmap(Resource.close, Color.FromArgb(255, 0, 255), new Point(280, 57));
+                    notify.TitleRectangle = new Rectangle(150, 57, 125, 28);
+                    notify.ContentRectangle = new Rectangle(75, 92, 215, 55);
                     break;
             }
 
