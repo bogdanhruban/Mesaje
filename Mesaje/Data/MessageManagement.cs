@@ -24,22 +24,28 @@ namespace Mesaje.Data
                 return null;                
             }
 
-            FileStream reader = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
-            
+            MessageManagement msgM = new MessageManagement();
             try
             {
-                XmlSerializer serializer = new XmlSerializer(typeof(MessageManagement));
-                // Load the object saved above by using the Deserialize function
-                return (MessageManagement)serializer.Deserialize(reader);
+                // Create a new XmlDocument  
+                XmlDocument doc = new XmlDocument();
+
+                // Load data  
+                doc.Load(filePath);
+
+                XmlNodeList nodes = doc.SelectNodes("/mesaje/mesaj");
+
+                foreach (XmlNode node in nodes)
+                {
+                    msgM.Add(Message.FromXml(node));
+                }
             }
-            catch
+            catch (Exception e)
             {
-                throw;
+                Logger.Write(e, LoggerErrorLevels.ERROR);
             }
-            finally
-            {
-                reader.Close();
-            }
+
+            return msgM;
         }
 
         public static MessageManagement UpdateXml()

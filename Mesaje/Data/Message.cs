@@ -13,9 +13,9 @@ namespace Mesaje.Data
         uint id = 0;
         string body = null;
         string title = null;
-        DateTime addDate = DateTime.Now;
-        DateTime publishDate;
-        DateTime lastPublished;
+        DateTime addDate = DateTime.MinValue;
+        DateTime publishDate = DateTime.MinValue;
+        DateTime lastPublished = DateTime.MinValue;
         uint timesPublished = 0;
         string author = null;
         string authorLink = null;
@@ -141,6 +141,7 @@ namespace Mesaje.Data
 
         #endregion
 
+        #region Serialization
         /// <summary>
         /// Deserialize a Message from an XML node
         /// </summary>
@@ -181,7 +182,7 @@ namespace Mesaje.Data
                 msg.AuthorLink = tmpNode.InnerText;
             }
 
-            // get the author id
+            // get the id
             tmpNode = node.SelectSingleNode("id");
             if (tmpNode != null)
             {
@@ -218,6 +219,68 @@ namespace Mesaje.Data
 
             return msg;
         }
+
+        /// <summary>
+        /// Serialize into XML format the given Message object
+        /// </summary>
+        /// <param name="msg">The Message to be serialized</param>
+        /// <returns>A XML string representation of the specifiedobject</returns>
+        public static string ToXml(Message msg)
+        {
+            string xml = "<mesaj>";
+
+            // add the Id
+            xml += "<id>" + msg.ID + "</id>";
+
+            // add the title
+            if (msg.Title != null)
+            {
+                xml += "<titlu>" + msg.Title + "</titlu>";
+            }
+
+            // add the content
+            if (msg.Body != null)
+            {
+                xml += "<continut>" + msg.Body + "</continut>";
+            }
+
+            // add the author
+            if (msg.Author != null)
+            {
+                xml += "<autor>" + msg.Author + "</autor>";
+            }
+
+            // add the authorLink
+            if (msg.AuthorLink != null)
+            {
+                xml += "<autorlink>" + msg.AuthorLink + "</autorlink>";
+            }
+
+            // add the timesPublished
+            xml += "<numarpublicatii>" + msg.TimesPublished + "</numarpublicatii>";
+
+            // add the addDate
+            xml += "<dataadaugarii>" + msg.AddDate + "</dataadaugarii>";
+
+            // add the lastpublished
+            xml += "<ultimapublicare>" + msg.LastPublished + "</ultimapublicare>";
+
+            // add the datapublicarii
+            xml += "<datapublicarii>" + msg.PublishDate + "</datapublicarii>";
+
+            xml += "</mesaj>";
+            return xml;
+        }
+
+        /// <summary>
+        /// Serialize into XML format the current Message object
+        /// </summary>
+        /// <returns>A XML string representation of the current object</returns>
+        public string ToXml()
+        {
+            return Message.ToXml(this);
+        }
+        #endregion
 
         // TODO: change this into an event?
         public void Publish()
