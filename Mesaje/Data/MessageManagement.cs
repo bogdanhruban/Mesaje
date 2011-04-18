@@ -82,10 +82,15 @@ namespace Mesaje.Data
         public static void SaveToXml(string filePath, MessageManagement messages)
         {
             System.IO.FileStream stream = new System.IO.FileStream(filePath, FileMode.Create);
+            StreamWriter sWriter = new StreamWriter(stream);
             try
             {
-                XmlSerializer serializer = new XmlSerializer(typeof(MessageManagement));
-                serializer.Serialize(stream, messages);
+                sWriter.WriteLine("<mesaje>");
+                foreach (Message msg in messages)
+                {
+                    sWriter.WriteLine(msg.ToXml());
+                }
+                sWriter.WriteLine("</mesaje>");
             }
             catch
             {
@@ -95,6 +100,9 @@ namespace Mesaje.Data
             {
                 stream.Close();
                 stream.Dispose();
+                
+                sWriter.Flush();
+                sWriter.Close();
             }
         }
 
